@@ -2,4 +2,9 @@
     background-color: palegoldenrod;
     width: 100%;
 
+    .subContainer {
+        height: calc(100vh - 70px);
+        background-color: #FFFFFF;
+        // padding: 80px;
+    }
 }
