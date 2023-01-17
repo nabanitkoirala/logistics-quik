@@ -16,13 +16,48 @@ import clock from '../../assets/icons/clock.png';
 
 const Navbar = () => {
     const [routeId, setRouteId] = useState(1)
-    const [showInfo1, setShowInfo1] = useState(false);
+    const [showNotification, setShowNotification] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
-
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
     return (
         <div className={styles.mainContainer} >
-            <div className={styles.subMainContainer} >
 
+            <div className={styles.subMainContainer} >
+                <PopupDiv
+                    show={showMobileMenu}
+                    setShowInfo={setShowMobileMenu}
+
+                >
+                    <div className={styles.notificationContainer} >
+                        <div className={styles.header} >
+                            Vendor ID. 3728
+                        </div>
+                        <div className={styles.header} >
+                            Dashboard
+                        </div>
+                        <div className={styles.header} >
+                            Orders
+                        </div>
+                        <div className={styles.header} >
+                            Transactions
+                        </div>
+                        <div className={styles.header} >
+                            Account Settings
+                        </div>
+                        <div className={styles.header} >
+                            Log Out
+                        </div>
+                        <div className={styles.header} >
+                            Website
+                        </div>
+                        <div className={styles.header} >
+                            Support
+                        </div>
+                        <div className={styles.header} >
+                            Contact Us
+                        </div>
+                    </div>
+                </PopupDiv>
 
                 <div>
                     <img src={mainLogo} alt="" />
@@ -51,7 +86,7 @@ const Navbar = () => {
 
                         <div className={styles.notification}
                             onClick={() => {
-                                setShowInfo1(true);
+                                setShowNotification(true);
                             }}
                             role="presentation"
                         >
@@ -60,8 +95,8 @@ const Navbar = () => {
 
 
                             <PopupDiv
-                                show={showInfo1}
-                                setShowInfo={setShowInfo1}
+                                show={showNotification}
+                                setShowInfo={setShowNotification}
 
                             >
                                 <div className={styles.notificationContainer} >
@@ -200,6 +235,12 @@ const Navbar = () => {
 
                             </PopupDiv>
                         </div>
+                        <button type='button' onClick={() => setShowMobileMenu(true)} className={`${styles.mainButtons} ${styles.orderButton} ${styles.mobileButton}`}>
+                            <span>
+                                Menu
+                            </span>
+
+                        </button>
                     </div>
 
 

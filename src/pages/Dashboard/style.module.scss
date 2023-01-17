@@ -1,3 +1,78 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .mainContainer {
+        max-width: 350px !important;
+
+        .mainTableContainer {
+            width: 350px;
+
+            .containerClassNamePagination {
+                .previousClassName {
+                    margin-right: auto;
+                    display: none;
+                }
+
+                .nextClassName {
+                    margin-left: auto;
+                    display: none;
+                }
+            }
+
+        }
+
+        .cardList {
+            gap: 19px !important;
+
+            .graphCard {
+                width: 350px !important;
+            }
+
+            .card {
+                width: 165.5px !important;
+            }
+        }
+
+        .headerButtons {
+            flex-direction: column;
+        }
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .mainContainer {
+
+        max-width: 500px !important;
+
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .mainContainer {
+
+        max-width: 600px !important;
+
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .mainContainer {
+
+        max-width: 800px !important;
+
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .mainContainer {
+
+        max-width: 1216px !important;
+
+    }
+}
+
 .mainContainer {
     max-width: 1216px;
     display: flex;
@@ -136,12 +211,8 @@
             height: 133px;
             width: 384px;
             border-radius: 5px;
-            // padding: 10px 16px;
-
             display: flex;
-            // height: 175px;
 
-            // width: 384px;
             .graphCardDetails {
                 width: 45%;
                 display: flex;
@@ -156,10 +227,7 @@
                     span {
                         font-weight: 600;
                         font-size: 24px;
-
                     }
-
-
                 }
 
                 span {
@@ -188,12 +256,8 @@
     .mainTableContainer {
         border: 1px solid #EAECF0;
         margin: 10px 0px;
-        // height: 568px;
-        // background-color: antiquewhite;
 
         .tableContainer {
-
-            // border: 1px solid #EAECF0;
             padding: 10px 16px;
 
             span {
@@ -265,20 +329,8 @@
 
         .dataTable {
             border-top: 1px solid #EAECF0;
-            // border: 1px solid #EAECF0;
+            overflow-x: scroll;
         }
-
-        // .arrow {
-        //     width: 120px;
-        // }
-
-        // .line {
-        //     margin-top: 14px;
-        //     width: 90px;
-        //     background: blue;
-        //     height: 10px;
-        //     float: left;
-        // }
 
         .point {
             width: 0;

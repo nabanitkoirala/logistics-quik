@@ -201,10 +201,6 @@ const Dashboard = ({ itemsPerPage }) => {
                     <TableComponent />
                 </div>
                 <div>
-                    {/* <div class={styles.arrow}>
-                        <div class={styles.line}></div>
-                        <div class={styles.point}></div>
-                    </div> */}
                     <ReactPaginate
                         nextLabel="Next >"
                         onPageChange={handlePageClick}
