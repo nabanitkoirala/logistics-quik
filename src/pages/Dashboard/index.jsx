@@ -9,7 +9,35 @@ import returns from '../../assets/icons/returns.png';
 import delivered from '../../assets/icons/delivered.png';
 import orderDays from '../../assets/icons/orderDays.png';
 import TableComponent from '../../components/Table';
-const Dashboard = () => {
+import ReactPaginate from 'react-paginate';
+import { useState } from 'react';
+const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+function Items({ currentItems }) {
+    return (
+        <>
+            {currentItems &&
+                currentItems.map((item) => (
+                    <div>
+                        <h3>Item #{item}</h3>
+                    </div>
+                ))}
+        </>
+    );
+}
+const Dashboard = ({ itemsPerPage }) => {
+    const [itemOffset, setItemOffset] = useState(0);
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    const currentItems = items.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(items.length / 1);
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % items.length;
+        console.log(
+            `User requested page number ${event.selected}, which is offset ${newOffset}`
+        );
+        setItemOffset(newOffset);
+    };
     return (
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
@@ -171,6 +199,34 @@ const Dashboard = () => {
                 </div>
                 <div className={styles.dataTable} >
                     <TableComponent />
+                </div>
+                <div>
+                    {/* <div class={styles.arrow}>
+                        <div class={styles.line}></div>
+                        <div class={styles.point}></div>
+                    </div> */}
+                    <ReactPaginate
+                        nextLabel="Next >"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={3}
+                        marginPagesDisplayed={2}
+                        pageCount={pageCount}
+                        previousLabel="< Previous"
+                        pageClassName={`page-item`}
+                        pageLinkClassName={`page-link ${styles.pageLinkClassName}`}
+                        previousClassName={`page-item ${styles.previousClassName}`}
+                        previousLinkClassName={`page-link ${styles.previousNextClassName}`}
+                        nextClassName={`page-item ${styles.nextClassName}`}
+                        nextLinkClassName={`page-link ${styles.previousNextClassName}`}
+                        breakLabel="..."
+                        breakClassName={`page-item`}
+                        breakLinkClassName={`page-link ${styles.pageLinkClassName}`}
+                        containerClassName={`pagination ${styles.containerClassNamePagination}`}
+                        renderOnZeroPageCount={null}
+                        activeClassName={`active `}
+                        activeLinkClassName={`${styles.activeClassName}`}
+                        disabledLinkClassName={styles.disabledLinkClassName}
+                    />
                 </div>
             </div>
         </div>
