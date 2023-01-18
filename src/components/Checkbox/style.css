@@ -1,0 +1,76 @@
+.checkbox-component-01-container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-component-01-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-component-01-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    border-radius: 4px;
+
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-component-01-container:hover input~.checkbox-component-01-checkmark {
+    background-color: #FFFFFF;
+    border: 1.6666px solid #00CC66;
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-component-01-container input:checked~.checkbox-component-01-checkmark {
+    width: 16px;
+    height: 16px;
+    background: #DAF0E9;
+    border: 1.6666px solid #00CC66;
+    border-radius: 4px;
+
+}
+
+/* Create the checkbox-component-01-checkmark/indicator (hidden when not checked) */
+.checkbox-component-01-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkbox-component-01-checkmark when checked */
+.checkbox-component-01-container input:checked~.checkbox-component-01-checkmark:after {
+    display: block;
+}
+
+/* Style the checkbox-component-01-checkmark/indicator */
+.checkbox-component-01-container .checkbox-component-01-checkmark:after {
+    left: 17%;
+    top: 28%;
+    width: 10px;
+    height: 8px;
+    background-image: url('../../assets//icons/checked.svg');
+
+
+}

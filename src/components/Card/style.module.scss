@@ -1,0 +1,82 @@
+.card {
+
+    border: 2px solid #EAECF0;
+    border-radius: 5px;
+
+    height: 133px;
+
+
+    width: 176px;
+
+    .details {
+        display: flex;
+        justify-content: space-between;
+        // height: 10%;
+        padding: 10px 16px;
+
+        span {
+            font-weight: 500;
+            font-size: 12px;
+            color: #667085;
+            line-height: 18px;
+        }
+
+    }
+
+    .footerDetails {
+        padding: 10px 16px;
+        border-top: 1px solid #EAECF0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 400;
+        color: #667085;
+    }
+}
+
+.graphCard {
+
+    border: 2px solid #EAECF0;
+    height: 133px;
+    width: 384px;
+    border-radius: 5px;
+    display: flex;
+
+    .graphCardDetails {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 16px;
+
+        .count {
+            display: flex;
+            gap: 6px;
+
+            span {
+                font-weight: 600;
+                font-size: 24px;
+            }
+        }
+
+        span {
+            color: #0C0F1E;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+
+        }
+    }
+
+    .mainGraph {
+        width: 55%;
+        display: flex;
+        padding: 10px 16px;
+
+        span {
+            font-size: 10px;
+            font-weight: 500;
+            color: #667085;
+        }
+    }
+}

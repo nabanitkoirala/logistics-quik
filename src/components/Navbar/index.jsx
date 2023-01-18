@@ -3,12 +3,12 @@ import styles from './style.module.scss';
 import notification from '../../assets/icons/notification.svg';
 import userImage from '../../assets/icons/user.svg';
 import dropDown from '../../assets/icons/dropdown.svg';
-import mainLogo from '../../assets/icons/mainLogo.png';
+import mainLogo from '../../assets/icons/logo.svg';
 import { Link } from 'react-router-dom';
 import PopupDiv from '../PopupDiv';
-import notification1 from '../../assets/icons/notification1.png';
-import notification2 from '../../assets/icons/notification2.png';
-import clock from '../../assets/icons/clock.png';
+import notification1 from '../../assets/icons/notification1.svg';
+import notification2 from '../../assets/icons/notification2.svg';
+import clock from '../../assets/icons/clock.svg';
 
 
 
@@ -59,9 +59,9 @@ const Navbar = () => {
                     </div>
                 </PopupDiv>
 
-                <div>
+                <div className={styles.logo} >
                     <img src={mainLogo} alt="" />
-                    Quik
+
                 </div>
                 <div className={styles.subContainer}>
                     <div className={styles.subContainerRight} >
@@ -90,7 +90,7 @@ const Navbar = () => {
                             }}
                             role="presentation"
                         >
-                            <img className={styles.mainImage} src={notification} alt="" height={11.25} width={10.69} />
+                            <img className={styles.mainImage} src={notification} alt="" />
                             <div className={styles.notificationCount} >6</div>
 
 

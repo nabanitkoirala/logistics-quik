@@ -26,6 +26,15 @@
     border-collapse: collapse;
     width: 100%;
 
+    .activeRow {
+        background-color: #EAECF0;
+    }
+
+    tr:hover {
+        background-color: #EAECF0;
+        cursor: pointer;
+    }
+
     td,
     th {
         // border: 1px solid #ddd;
@@ -40,6 +49,11 @@
         font-weight: 400;
         line-height: 18px;
         color: #667085;
+
+        .actionButtons {
+            display: flex;
+            gap: 16px;
+        }
 
     }
 

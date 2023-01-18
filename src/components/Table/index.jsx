@@ -1,11 +1,28 @@
+import { useState } from 'react';
+import Checkbox from '../Checkbox';
 import styles from './style.module.scss';
-
+import edit from '../../assets/icons/edit.svg';
+import printer from '../../assets/icons/printer.svg';
+import trash from '../../assets/icons/trash.svg';
 
 const TableComponent = () => {
+    const [checked, setChecked] = useState(false)
+    const [selectedRow, setSelectedRow] = useState(null)
     return (
         <table className={styles.tableWithData} >
             <thead>
                 <tr>
+                    <th><Checkbox checked={checked} handleChange={() => {
+
+
+                        if (checked) {
+                            setChecked(false)
+                            setSelectedRow(null)
+                        } else {
+                            setChecked(true)
+                            setSelectedRow('all')
+                        }
+                    }} /></th>
                     <th>Order ID</th>
                     <th>Date</th>
                     <th>Receiver Name</th>
@@ -17,10 +34,15 @@ const TableComponent = () => {
                     <th>COD Amount</th>
                     <th>Delivery Charge</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(1)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -43,8 +65,19 @@ const TableComponent = () => {
                         </div>
 
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 2 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(2)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -67,8 +100,19 @@ const TableComponent = () => {
                             Processing
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 3 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(3)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -90,8 +134,19 @@ const TableComponent = () => {
                             Processing
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 4 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(4)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -113,8 +168,19 @@ const TableComponent = () => {
                             Processing
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 5 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(5)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -136,8 +202,19 @@ const TableComponent = () => {
                             Dispatched
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 6 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(6)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -159,8 +236,19 @@ const TableComponent = () => {
                             Delivered
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
-                <tr>
+                <tr className={selectedRow === 7 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                    <td><Checkbox checked={checked} handleChange={() => {
+                        setSelectedRow(7)
+                        setChecked(!checked)
+                    }} /></td>
                     <td>79301</td>
                     <td>Apr 25,2019 8:49</td>
                     <td>Arun Kumar Mandal</td>
@@ -182,9 +270,16 @@ const TableComponent = () => {
                             Processing
                         </div>
                     </td>
+                    <td>
+                        <div className={styles.actionButtons} >
+                            <img src={printer} alt="" height={16} width={16} />
+                            <img src={edit} alt="" height={16} width={16} />
+                            <img src={trash} alt="" height={16} width={16} />
+                        </div>
+                    </td>
                 </tr>
             </tbody>
-        </table>
+        </table >
     )
 }
 

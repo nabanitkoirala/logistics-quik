@@ -96,60 +96,63 @@
         }
     }
 
-    .headerButtons {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0px;
-
-
-
-        .details {
-            h2 {
-                margin: 0px;
-                font-size: 20px;
-                font-weight: 500;
-                color: #0C0F1E;
-
-            }
-        }
-
-        .buttons {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            // button {
-            //     margin: 0px 5px;
-            // }
-
-            .orderButton {
-                background-color: #6DCD68;
-                // width: 120px;
-
-                span {
-                    color: white;
-                    // margin: 0px 20px;
-                    font-size: 12px;
-                    font-weight: 500;
-                }
-            }
-        }
-    }
-
-    .cardList {
-        display: flex;
-        margin: 10px 0px;
-        flex-wrap: wrap;
-        gap: 32px;
-
-
-
-
-    }
-
     .mainTableContainer {
         border: 1px solid #EAECF0;
         margin: 10px 0px;
+
+        .searchFilterContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-top: 1px solid #EAECF0;
+            height: 80px;
+            align-items: center;
+
+            .searchBox {
+                padding: 8px;
+                width: 407px;
+                height: 30px;
+                background-color: #FFFFFF;
+                border: 1px solid #EAECF0;
+                border-radius: 160px;
+            }
+
+            .filterContainer {
+                display: flex;
+                gap: 12px;
+
+
+
+                .resetButton {
+                    height: 30px;
+                    width: 57px;
+                    padding: 8px 12px;
+                    background-color: #FDEFEF;
+                    display: flex;
+                    justify-content: center;
+                    border: 1px solid #EC6363;
+
+                    span {
+                        color: #EC6363;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 15px;
+                    }
+                }
+            }
+        }
+
+        .orderFilterTab {
+            // padding: 0px 16px;
+            height: 60px;
+            border-top: 1px solid #EAECF0;
+            display: flex;
+            align-items: center;
+
+            // gap: 32px;
+
+        }
 
         .tableContainer {
             padding: 10px 16px;
@@ -166,6 +169,47 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                .downloadButton {
+                    height: 32px;
+                    width: auto;
+                    background: #FFFFFF;
+                    /* Stroke for buttons */
+
+                    border: 1px solid #D0D5DD;
+                    border-radius: 130px;
+                    padding: 8px 12px;
+
+                    img {
+                        height: 20px;
+                        width: 20px;
+                    }
+
+                    span {
+                        font-weight: 500;
+                    }
+                }
+
+                .orderButton {
+                    height: 32px;
+                    // width: 138px;
+                    background: #03373E;
+                    /* Stroke for buttons */
+
+                    border: 1px solid #D0D5DD;
+                    border-radius: 130px;
+                    padding: 8px 12px;
+
+                    img {
+                        height: 20px;
+                        width: 20px;
+                    }
+
+                    span {
+                        color: #FFFFFF;
+                        font-weight: 500;
+                    }
+                }
 
                 .headerBeginner {
                     display: flex;
@@ -241,13 +285,13 @@
             margin: 14px 16px;
 
             .activeClassName {
-                background-color: rgba(102, 112, 133, 0.1);
-                border-radius: 8px;
-                font-weight: 500;
-                font-style: normal;
-                font-size: 12px;
-                line-height: 20px;
-                color: #0C0F1E;
+                background-color: rgba(102, 112, 133, 0.1) !important;
+                border-radius: 8px !important;
+                font-weight: 500 !important;
+                font-style: normal !important;
+                font-size: 12px !important;
+                line-height: 20px !important;
+                color: #0C0F1E !important;
 
             }
 

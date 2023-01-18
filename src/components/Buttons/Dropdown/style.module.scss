@@ -1,0 +1,25 @@
+.select {
+    min-width: 109px;
+    width: auto;
+    height: 30px;
+    background-color: #FFFFFF;
+    border: 1px solid #EAECF0;
+    border-radius: 160px;
+    padding: 8px 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #667085;
+
+    select {
+        border: none;
+        background: none;
+        width: 40px;
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+}

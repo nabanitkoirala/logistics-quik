@@ -1,0 +1,21 @@
+.orderFilterCategories {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #667085;
+    cursor: pointer;
+
+
+}
+
+.active {
+    border-top: 4px solid white;
+    color: #03373E;
+    border-bottom: 3px solid #03373E;
+    font-weight: 500;
+}

@@ -4,6 +4,11 @@
         .subMainContainer {
             max-width: 350px !important;
 
+            .logo {
+                display: flex;
+                gap: 8px;
+            }
+
             .notificationContainer {
                 width: 400px !important;
 
@@ -175,7 +180,7 @@
             margin: 0px 15px;
 
             .mainImage {
-                filter: invert(100%);
+                // filter: invert(100%);
             }
 
 
