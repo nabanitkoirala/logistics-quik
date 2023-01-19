@@ -11,7 +11,7 @@ const TabSwitch = () => {
                 role="presentation"
                 onClick={() => setOrderFilterId(1)}
             >
-                <span>Today</span>
+                Today
             </div>
             <div className={`${orderFilterId === 2 ? styles.active : ''} ${styles.orderFilterCategories}`}
                 role="presentation"

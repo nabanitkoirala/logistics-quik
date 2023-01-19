@@ -1,10 +1,216 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .mainContainer {
-        max-width: 350px !important;
+        max-width: 343px !important;
 
         .mainTableContainer {
-            width: 350px;
+            width: 343px;
+
+            .orderFilterTab {
+                overflow-x: auto;
+                height: 48px !important;
+
+            }
+
+            .searchFilterContainer {
+                padding: 16px !important;
+
+                .filterNotificationContainer {
+                    /* White */
+
+                    background: #FFFFFF;
+                    border: 1px solid #EAECF0;
+                    /* Drop Twio */
+
+                    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+                    border-radius: 4px;
+                    width: 243px;
+                    height: 220px;
+
+
+                    .header {
+                        padding: 8px 16px;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid #EAECF0;
+
+                        span {
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 12px;
+                            line-height: 15px;
+                            /* identical to box height */
+
+
+                            /* Text */
+
+                            color: #0C0F1E;
+                        }
+
+                    }
+
+                    .secondHeader {
+                        padding: 8px 16px;
+                        display: flex;
+                        gap: 12px;
+                        flex-direction: column;
+
+                        .resetButton {
+                            height: 30px;
+                            width: 57px;
+                            padding: 8px 12px;
+                            background-color: #FDEFEF;
+                            display: flex;
+                            justify-content: center;
+                            border: 1px solid #EC6363;
+                            margin-left: auto;
+
+                            span {
+                                color: #EC6363;
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 12px;
+                                line-height: 15px;
+                            }
+                        }
+
+                        .dropdowns {
+                            width: 211px;
+                            height: 30px;
+
+                            background: #FFFFFF;
+                            /* Stroke */
+
+                            border: 1px solid #EAECF0;
+                            border-radius: 160px;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+
+                .searchBox {
+                    width: 236px !important;
+                    height: 36px !important;
+                }
+
+                .filterContainer {
+                    display: none !important;
+                }
+
+                .responsiveFilter {
+                    display: flex !important;
+                    width: 59px !important;
+                    padding: 8px 12px !important;
+
+                    span {
+                        font-weight: 400 !important;
+                    }
+                }
+            }
+
+            .tableContainer {
+                flex-direction: column !important;
+                gap: 12px !important;
+
+                .downloadButtonsGroup {
+                    justify-content: flex-end !important;
+                    // .clickedButton{
+
+                    // }
+                    .clickedButton {
+                        display: flex !important;
+                    }
+
+                    .notificationContainer {
+                        width: 169px;
+                        // height: 70px;
+                        background: #FFFFFF;
+                        border: 1px solid #EAECF0;
+                        /* Drop Twio */
+
+                        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+                        border-radius: 4px;
+                        padding: 8px;
+
+                        .header {
+                            // height: 36px;
+                            // padding: 8px 16px;
+                            // background-color: #FFFFFF;
+                            // border-bottom: 0.5px solid #EAECF0;
+                            // color: #667085;
+
+                            // font-style: normal;
+                            // font-weight: 400;
+                            // font-size: 12px;
+                            // line-height: 15px;
+                            width: 153px;
+                            height: 27px;
+
+                            /* Light Background */
+
+                            background: #F2F4F7;
+                            border-radius: 4px;
+                            padding: 6px 8px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 15px;
+                            /* identical to box height */
+
+
+                            /* Text */
+
+                            color: #0C0F1E;
+                            cursor: pointer;
+
+                        }
+
+                        .secondHeader {
+                            width: 153px;
+                            height: 27px;
+                            padding: 6px 8px;
+                            border-radius: 4px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 15px;
+                            /* identical to box height */
+                            cursor: pointer;
+
+                            /* Muted Text */
+
+                            color: #667085;
+                        }
+
+
+
+
+
+
+                    }
+
+                    .downloadButton {
+                        height: 36px !important;
+                        width: 111px !important;
+
+                    }
+
+                    .orderButton {
+                        height: 36px !important;
+                        width: 112px !important;
+
+                    }
+                }
+
+                .removeOnMobile {
+                    display: none;
+                }
+
+                .orderContentText {
+                    display: none !important;
+                }
+            }
 
             .containerClassNamePagination {
                 .previousClassName {
@@ -41,8 +247,14 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .mainContainer {
-
         max-width: 500px !important;
+
+        .mainTableContainer {
+            .tableContainer {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+        }
 
     }
 }
@@ -50,8 +262,14 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .mainContainer {
-
         max-width: 600px !important;
+
+        .mainTableContainer {
+            .tableContainer {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+        }
 
     }
 }
@@ -61,6 +279,22 @@
     .mainContainer {
 
         max-width: 800px !important;
+
+        .mainTableContainer {
+            .tableContainer {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .searchFilterContainer {
+
+
+                .searchBox {
+                    width: 300px !important;
+                }
+            }
+
+        }
 
     }
 }
@@ -108,6 +342,10 @@
             height: 80px;
             align-items: center;
 
+            .responsiveFilter {
+                display: none;
+            }
+
             .searchBox {
                 padding: 8px;
                 width: 407px;
@@ -115,6 +353,23 @@
                 background-color: #FFFFFF;
                 border: 1px solid #EAECF0;
                 border-radius: 160px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-size: 18px 18px;
+                background-origin: content-box;
+                padding-left: 10px;
+                background-image: url('../../assets/icons/search.svg');
+                text-indent: 25px;
+
+                &::placeholder {
+                    color: #667085;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+
+
             }
 
             .filterContainer {
@@ -156,19 +411,16 @@
 
         .tableContainer {
             padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
 
-            span {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 12px;
-                line-height: 150%;
-                color: #667085;
-            }
-
-            .containerHeader {
+            .downloadButtonsGroup {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                gap: 12px;
+
+                .clickedButton {
+                    display: none;
+                }
 
                 .downloadButton {
                     height: 32px;
@@ -210,6 +462,23 @@
                         font-weight: 500;
                     }
                 }
+            }
+
+
+            span {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                color: #667085;
+            }
+
+            .containerHeader {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+
+
 
                 .headerBeginner {
                     display: flex;

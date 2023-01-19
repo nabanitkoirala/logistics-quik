@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './style.module.scss';
 
 
-const DropdownButton = () => {
+const DropdownButton = ({ className }) => {
     return (
-        <div className={styles.select}>
+        <div className={`${className} ${styles.select}`}>
             <span>District:</span>
             <select name="cars" id="cars"  >
                 <option value="volvo">All</option>

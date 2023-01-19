@@ -1,48 +1,20 @@
 @media only screen and (max-width: 500px) {
 
-    .card {
-        width: 165.5px !important;
-    }
-}
+    .graphCard {
+        width: 343px !important;
 
+        .graphCardDetails {
+            width: 40% !important;
+            gap: 45px !important;
+            justify-content: unset !important;
 
-
-
-
-.card {
-
-    border: 2px solid #EAECF0;
-    border-radius: 5px;
-
-    height: 133px;
-
-
-    width: 176px;
-
-    .details {
-        display: flex;
-        justify-content: space-between;
-        // height: 10%;
-        padding: 10px 16px;
-
-        span {
-            font-weight: 500;
-            font-size: 12px;
-            color: #667085;
-            line-height: 18px;
         }
 
+        .mainGraph {
+            width: 60% !important;
+        }
     }
 
-    .footerDetails {
-        padding: 10px 16px;
-        border-top: 1px solid #EAECF0;
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        font-weight: 400;
-        color: #667085;
-    }
 }
 
 .graphCard {
@@ -52,6 +24,7 @@
     width: 384px;
     border-radius: 5px;
     display: flex;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
 
     .graphCardDetails {
         width: 45%;

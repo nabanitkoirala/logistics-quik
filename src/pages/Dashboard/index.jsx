@@ -10,6 +10,12 @@ import GeneralButton from '../../components/Buttons/GeneralButton';
 import IconButton from '../../components/Buttons/IconButton';
 import Card from '../../components/Card';
 import add from '../../assets/icons/add.svg';
+import order from '../../assets/icons/order.svg';
+import delivered from '../../assets/icons/delivered.svg';
+import returns from '../../assets/icons/returns.svg';
+import orderValue from '../../assets/icons/orderValue.svg';
+import orderDays from '../../assets/icons/orderDays.svg';
+import GraphCard from '../../components/GraphCard';
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 function Items({ currentItems }) {
     return (
@@ -47,7 +53,7 @@ const Dashboard = ({ itemsPerPage }) => {
                 <div className={styles.details} >
                     <h2>Dashboard Overview</h2>
                     <span style={{ fontSize: '12px', color: '#0C0F1E', fontWeight: '400' }} >Wednesday</span>
-                    <span style={{ marginLeft: '5px', fontWeight: '400', fontSize: '12px', color: '#667085' }} >Jan 5,2022</span>
+                    <span style={{ marginLeft: '8px', fontWeight: '400', fontSize: '12px', color: '#667085' }} >Jan 5,2022</span>
                 </div>
                 <div className={styles.buttons} >
                     <IconButton
@@ -71,10 +77,39 @@ const Dashboard = ({ itemsPerPage }) => {
                 </div>
             </div>
             <div className={styles.cardList} >
-                <Card />
-
-
-
+                <Card
+                    title="Total Orders"
+                    imgSource={order}
+                    footerText="New Orders"
+                    value={230}
+                    footerValue={12}
+                    titleTextFieldWidth={65}
+                />
+                <Card
+                    title="Total Delivered"
+                    imgSource={delivered}
+                    footerText="New Orders"
+                    value={230}
+                    footerValue={12}
+                    titleTextFieldWidth={65}
+                />
+                <Card
+                    title="Total Returns"
+                    imgSource={returns}
+                    footerText="New Orders"
+                    value={230}
+                    footerValue={12}
+                    titleTextFieldWidth={65}
+                />
+                <Card
+                    title="Total Ordered Value"
+                    imgSource={orderValue}
+                    footerText="New Orders"
+                    value={230}
+                    footerValue={12}
+                    titleTextFieldWidth={80}
+                />
+                <GraphCard />
             </div>
             <div className={styles.mainTableContainer}>
                 <div className={styles.tableContainer} >
@@ -83,11 +118,8 @@ const Dashboard = ({ itemsPerPage }) => {
                             <span>Recent Orders</span>
                             <div className={styles.orderIndicator} >20 New Orders</div>
                         </div>
-
-
                         <button type='button' className={styles.mainButtons}>
                             <div style={{ display: 'flex', alignItems: 'center' }} >
-
                                 <span>
 
                                     See All
@@ -97,7 +129,6 @@ const Dashboard = ({ itemsPerPage }) => {
                         </button>
                     </div>
                     <span>Your most recent orders appear here</span>
-
                 </div>
                 <div className={styles.dataTable} >
                     <TableComponent />
