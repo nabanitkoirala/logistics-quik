@@ -247,14 +247,14 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .mainContainer {
-        max-width: 500px !important;
+        // max-width: 500px !important;
 
-        .mainTableContainer {
-            .tableContainer {
-                flex-direction: column !important;
-                gap: 12px !important;
-            }
-        }
+        // .mainTableContainer {
+        //     .tableContainer {
+        //         flex-direction: column !important;
+        //         gap: 12px !important;
+        //     }
+        // }
 
     }
 }
@@ -262,14 +262,14 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .mainContainer {
-        max-width: 600px !important;
+        // max-width: 600px !important;
 
-        .mainTableContainer {
-            .tableContainer {
-                flex-direction: column !important;
-                gap: 12px !important;
-            }
-        }
+        // .mainTableContainer {
+        //     .tableContainer {
+        //         flex-direction: column !important;
+        //         gap: 12px !important;
+        //     }
+        // }
 
     }
 }
@@ -278,40 +278,70 @@
 @media only screen and (min-width: 992px) {
     .mainContainer {
 
-        max-width: 800px !important;
+        // max-width: 800px !important;
 
-        .mainTableContainer {
-            .tableContainer {
-                flex-direction: column !important;
-                gap: 12px !important;
-            }
+        // .mainTableContainer {
+        //     .tableContainer {
+        //         flex-direction: column !important;
+        //         gap: 12px !important;
+        //     }
 
-            .searchFilterContainer {
+        //     .searchFilterContainer {
 
 
-                .searchBox {
-                    width: 300px !important;
-                }
-            }
+        //         .searchBox {
+        //             width: 300px !important;
+        //         }
+        //     }
 
-        }
-
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .mainContainer {
-
-        max-width: 1216px !important;
+        // }
 
     }
 }
+
+
 
 .mainContainer {
     max-width: 1216px;
     display: flex;
     flex-direction: column;
     margin: auto;
+
+    // /* Large devices (laptops/desktops, 992px and up) */
+    // @media only screen and (max-width: 992px) {
+    //     max-width: 800px;
+
+    // }
+
+    // @media only screen and (max-width: 768px) {
+    //     max-width: 600px;
+
+    // }
+
+    // // @media only screen and (min-width: 600px) {
+    // //     max-width: 500px;
+
+    // // }
+
+    // @media only screen and (max-width: 600px) {
+    //     max-width: 343px;
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .breadCrump {
         display: flex;
@@ -413,6 +443,7 @@
             padding: 10px 16px;
             display: flex;
             justify-content: space-between;
+            flex-direction: row;
 
             .downloadButtonsGroup {
                 display: flex;
@@ -431,6 +462,7 @@
                     border: 1px solid #D0D5DD;
                     border-radius: 130px;
                     padding: 8px 12px;
+                    white-space: nowrap;
 
                     img {
                         height: 20px;
@@ -451,6 +483,7 @@
                     border: 1px solid #D0D5DD;
                     border-radius: 130px;
                     padding: 8px 12px;
+                    white-space: nowrap;
 
                     img {
                         height: 20px;
