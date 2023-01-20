@@ -5,7 +5,8 @@ import styles from './style.module.scss';
 const InfoBox = ({
     show,
     children,
-    setShowInfo
+    setShowInfo,
+    className
 }) => {
     const ref = useRef(null);
     useEffect(() => {
@@ -20,7 +21,7 @@ const InfoBox = ({
     if (!show) { return null; }
 
     return (
-        <div ref={ref} id="12" className={styles.mainContainer} >
+        <div ref={ref} id="12" className={`${className} ${styles.mainContainer}`} >
             {children}
         </div>
     );

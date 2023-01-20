@@ -1,19 +1,77 @@
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .mainContainer {
-        max-width: 343px !important;
+.mainContainer {
+    max-width: 1216px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 
-        .mainTableContainer {
-            width: 343px;
+    @media only screen and (max-width: 1216px) {
+        max-width: 1000px;
+    }
 
-            .orderFilterTab {
-                overflow-x: auto;
-                height: 48px !important;
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (max-width: 992px) {
+        max-width: 800px;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        max-width: 600px;
+
+    }
+
+    @media only screen and (max-width: 600px) {
+        max-width: 343px;
+    }
+
+
+
+    .breadCrump {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-top: 20px;
+
+        span {
+            margin-top: 2px;
+            margin: 0px 5px;
+            font-size: 12px;
+            font-weight: 500;
+            font-style: normal;
+            color: #0C0F1E;
+        }
+    }
+
+    .mainTableContainer {
+        border: 1px solid #EAECF0;
+        margin: 10px 0px;
+        border-radius: 4px;
+
+        .searchFilterContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-top: 1px solid #EAECF0;
+            height: 80px;
+            align-items: center;
+
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                height: auto;
 
             }
 
-            .searchFilterContainer {
-                padding: 16px !important;
+            @media only screen and (max-width: 600px) {
+                flex-direction: row;
+                gap: 16px;
+
+
+            }
+
+            @media only screen and (max-width: 600px) {
+                padding: 16px;
 
                 .filterNotificationContainer {
                     /* White */
@@ -88,292 +146,20 @@
                         }
                     }
                 }
-
-                .searchBox {
-                    width: 236px !important;
-                    height: 36px !important;
-                }
-
-                .filterContainer {
-                    display: none !important;
-                }
-
-                .responsiveFilter {
-                    display: flex !important;
-                    width: 59px !important;
-                    padding: 8px 12px !important;
-
-                    span {
-                        font-weight: 400 !important;
-                    }
-                }
             }
-
-            .tableContainer {
-                flex-direction: column !important;
-                gap: 12px !important;
-
-                .downloadButtonsGroup {
-                    justify-content: flex-end !important;
-                    // .clickedButton{
-
-                    // }
-                    .clickedButton {
-                        display: flex !important;
-                    }
-
-                    .notificationContainer {
-                        width: 169px;
-                        // height: 70px;
-                        background: #FFFFFF;
-                        border: 1px solid #EAECF0;
-                        /* Drop Twio */
-
-                        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-                        border-radius: 4px;
-                        padding: 8px;
-
-                        .header {
-                            // height: 36px;
-                            // padding: 8px 16px;
-                            // background-color: #FFFFFF;
-                            // border-bottom: 0.5px solid #EAECF0;
-                            // color: #667085;
-
-                            // font-style: normal;
-                            // font-weight: 400;
-                            // font-size: 12px;
-                            // line-height: 15px;
-                            width: 153px;
-                            height: 27px;
-
-                            /* Light Background */
-
-                            background: #F2F4F7;
-                            border-radius: 4px;
-                            padding: 6px 8px;
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 12px;
-                            line-height: 15px;
-                            /* identical to box height */
-
-
-                            /* Text */
-
-                            color: #0C0F1E;
-                            cursor: pointer;
-
-                        }
-
-                        .secondHeader {
-                            width: 153px;
-                            height: 27px;
-                            padding: 6px 8px;
-                            border-radius: 4px;
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 12px;
-                            line-height: 15px;
-                            /* identical to box height */
-                            cursor: pointer;
-
-                            /* Muted Text */
-
-                            color: #667085;
-                        }
-
-
-
-
-
-
-                    }
-
-                    .downloadButton {
-                        height: 36px !important;
-                        width: 111px !important;
-
-                    }
-
-                    .orderButton {
-                        height: 36px !important;
-                        width: 112px !important;
-
-                    }
-                }
-
-                .removeOnMobile {
-                    display: none;
-                }
-
-                .orderContentText {
-                    display: none !important;
-                }
-            }
-
-            .containerClassNamePagination {
-                .previousClassName {
-                    margin-right: auto;
-                    display: none;
-                }
-
-                .nextClassName {
-                    margin-left: auto;
-                    display: none;
-                }
-            }
-
-        }
-
-        .cardList {
-            gap: 19px !important;
-
-            .graphCard {
-                width: 350px !important;
-            }
-
-            .card {
-                width: 165.5px !important;
-            }
-        }
-
-        .headerButtons {
-            flex-direction: column;
-        }
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .mainContainer {
-        // max-width: 500px !important;
-
-        // .mainTableContainer {
-        //     .tableContainer {
-        //         flex-direction: column !important;
-        //         gap: 12px !important;
-        //     }
-        // }
-
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .mainContainer {
-        // max-width: 600px !important;
-
-        // .mainTableContainer {
-        //     .tableContainer {
-        //         flex-direction: column !important;
-        //         gap: 12px !important;
-        //     }
-        // }
-
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .mainContainer {
-
-        // max-width: 800px !important;
-
-        // .mainTableContainer {
-        //     .tableContainer {
-        //         flex-direction: column !important;
-        //         gap: 12px !important;
-        //     }
-
-        //     .searchFilterContainer {
-
-
-        //         .searchBox {
-        //             width: 300px !important;
-        //         }
-        //     }
-
-        // }
-
-    }
-}
-
-
-
-.mainContainer {
-    max-width: 1216px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-
-    // /* Large devices (laptops/desktops, 992px and up) */
-    // @media only screen and (max-width: 992px) {
-    //     max-width: 800px;
-
-    // }
-
-    // @media only screen and (max-width: 768px) {
-    //     max-width: 600px;
-
-    // }
-
-    // // @media only screen and (min-width: 600px) {
-    // //     max-width: 500px;
-
-    // // }
-
-    // @media only screen and (max-width: 600px) {
-    //     max-width: 343px;
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .breadCrump {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 10px;
-        margin-top: 20px;
-
-        span {
-            margin-top: 2px;
-            margin: 0px 5px;
-            font-size: 12px;
-            font-weight: 500;
-            font-style: normal;
-            color: #0C0F1E;
-        }
-    }
-
-    .mainTableContainer {
-        border: 1px solid #EAECF0;
-        margin: 10px 0px;
-
-        .searchFilterContainer {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 16px;
-            border-top: 1px solid #EAECF0;
-            height: 80px;
-            align-items: center;
 
             .responsiveFilter {
                 display: none;
+
+                @media only screen and (max-width: 600px) {
+                    display: flex;
+                    width: 59px;
+                    padding: 8px 12px;
+
+                    span {
+                        font-weight: 400;
+                    }
+                }
             }
 
             .searchBox {
@@ -399,6 +185,14 @@
                     line-height: 15px;
                 }
 
+                @media only screen and (max-width: 992px) {
+                    width: 300px;
+                }
+
+                @media only screen and (max-width: 600px) {
+                    width: 236px;
+                    height: 36px;
+                }
 
             }
 
@@ -406,6 +200,9 @@
                 display: flex;
                 gap: 12px;
 
+                @media only screen and (max-width: 600px) {
+                    display: none;
+                }
 
 
                 .resetButton {
@@ -436,6 +233,13 @@
             align-items: center;
 
             // gap: 32px;
+            @media only screen and (max-width: 768px) {
+                overflow-x: auto;
+            }
+
+            @media only screen and (max-width: 600px) {
+                height: 48px;
+            }
 
         }
 
@@ -445,12 +249,116 @@
             justify-content: space-between;
             flex-direction: row;
 
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (max-width: 992px) {
+                flex-direction: column;
+                gap: 12px;
+
+            }
+
+            @media only screen and (max-width: 768px) {
+                max-width: 600px;
+
+            }
+
+
+
+            @media only screen and (max-width: 600px) {
+                max-width: 343px;
+                flex-direction: column;
+                gap: 12px;
+
+                .removeOnMobile {
+                    display: none;
+                }
+
+                .orderContentText {
+                    display: none;
+                }
+            }
+
             .downloadButtonsGroup {
                 display: flex;
                 gap: 12px;
 
+                @media only screen and (max-width: 600px) {
+                    justify-content: flex-end;
+                }
+
+                .notificationContainer {
+                    width: 169px;
+                    // height: 70px;
+                    background: #FFFFFF;
+                    border: 1px solid #EAECF0;
+                    /* Drop Twio */
+
+                    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+                    border-radius: 4px;
+                    padding: 8px;
+
+                    .header {
+                        // height: 36px;
+                        // padding: 8px 16px;
+                        // background-color: #FFFFFF;
+                        // border-bottom: 0.5px solid #EAECF0;
+                        // color: #667085;
+
+                        // font-style: normal;
+                        // font-weight: 400;
+                        // font-size: 12px;
+                        // line-height: 15px;
+                        width: 153px;
+                        height: 27px;
+
+                        /* Light Background */
+
+                        background: #F2F4F7;
+                        border-radius: 4px;
+                        padding: 6px 8px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 15px;
+                        /* identical to box height */
+
+
+                        /* Text */
+
+                        color: #0C0F1E;
+                        cursor: pointer;
+
+                    }
+
+                    .secondHeader {
+                        width: 153px;
+                        height: 27px;
+                        padding: 6px 8px;
+                        border-radius: 4px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 15px;
+                        /* identical to box height */
+                        cursor: pointer;
+
+                        /* Muted Text */
+
+                        color: #667085;
+                    }
+
+
+
+
+
+
+                }
+
                 .clickedButton {
                     display: none;
+
+                    @media only screen and (max-width: 600px) {
+                        display: flex;
+                    }
                 }
 
                 .downloadButton {
@@ -471,6 +379,11 @@
 
                     span {
                         font-weight: 500;
+                    }
+
+                    @media only screen and (max-width: 600px) {
+                        height: 36px;
+                        width: 111px;
                     }
                 }
 
@@ -493,6 +406,11 @@
                     span {
                         color: #FFFFFF;
                         font-weight: 500;
+                    }
+
+                    @media only screen and (max-width: 600px) {
+                        height: 36px;
+                        width: 112px;
                     }
                 }
             }
@@ -641,10 +559,20 @@
 
             .previousClassName {
                 margin-right: auto;
+
+                @media only screen and (max-width: 600px) {
+
+                    display: none;
+                }
             }
 
             .nextClassName {
                 margin-left: auto;
+
+                @media only screen and (max-width: 600px) {
+
+                    display: none;
+                }
             }
         }
 

@@ -8,7 +8,7 @@ import download from '../../assets/icons/download.svg';
 import upload from '../../assets/icons/upload.svg';
 import shippingLabel from '../../assets/icons/shippingLabel.svg';
 import add from '../../assets/icons/add.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TabSwitch from '../../components/TabSwitch';
 import DropdownButton from '../../components/Buttons/Dropdown';
 import IconButton from '../../components/Buttons/IconButton';
@@ -33,6 +33,9 @@ const Order = ({ itemsPerPage }) => {
     const [clickedFilter, setClickedFilter] = useState(false)
     const [orderFilterId, setOrderFilterId] = useState(1)
     const [itemOffset, setItemOffset] = useState(0);
+    const navigate = useNavigate();
+
+
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = items.slice(itemOffset, endOffset);
@@ -114,6 +117,7 @@ const Order = ({ itemsPerPage }) => {
                             title="New order"
                             className={styles.orderButton}
                             imgSource={add}
+                            onClick={() => navigate('/orders/new-order')}
                         />
                     </div>
 

@@ -1,88 +1,27 @@
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 500px) {
-    .mainContainer {
-        max-width: 343px !important;
-
-        .headerButtons {
-            .details {
-                margin: 12px 0px;
-
-                h2 {
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 18px;
-                    line-height: 150%;
-                }
-            }
-        }
-
-        .mainTableContainer {
-            width: 343px;
-
-            .containerClassNamePagination {
-                .previousClassName {
-                    margin-right: auto;
-                    display: none;
-                }
-
-                .nextClassName {
-                    margin-left: auto;
-                    display: none;
-                }
-            }
-
-        }
-
-        .cardList {
-            gap: 12px !important;
-        }
-
-        .headerButtons {
-            flex-direction: column;
-        }
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .mainContainer {
-
-        max-width: 500px !important;
-
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .mainContainer {
-
-        max-width: 600px !important;
-
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .mainContainer {
-
-        max-width: 800px !important;
-
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .mainContainer {
-
-        max-width: 1216px !important;
-
-    }
-}
-
 .mainContainer {
     max-width: 1216px;
     display: flex;
     flex-direction: column;
     margin: auto;
+
+    @media only screen and (max-width: 1216px) {
+        max-width: 1000px;
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (max-width: 992px) {
+        max-width: 800px;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        max-width: 600px;
+
+    }
+
+    @media only screen and (max-width: 600px) {
+        max-width: 343px;
+    }
 
     .breadCrump {
         display: flex;
@@ -106,6 +45,10 @@
         justify-content: space-between;
         margin: 10px 0px;
 
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
+
         .details {
             h2 {
                 margin: 0px;
@@ -113,6 +56,17 @@
                 font-weight: 500;
                 color: #0C0F1E;
 
+            }
+
+            @media only screen and (max-width: 600px) {
+                margin: 12px 0px;
+
+                h2 {
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 150%;
+                }
             }
         }
 
@@ -144,11 +98,20 @@
         margin: 10px 0px;
         flex-wrap: wrap;
         gap: 32px;
+
+        @media only screen and (max-width: 600px) {
+            gap: 12px;
+        }
     }
 
     .mainTableContainer {
         border: 1px solid #EAECF0;
         margin: 10px 0px;
+        border-radius: 4px;
+
+        @media only screen and (max-width: 600px) {
+            width: 343px;
+        }
 
         .tableContainer {
             padding: 10px 16px;
@@ -292,10 +255,26 @@
 
             .previousClassName {
                 margin-right: auto;
+
+                @media only screen and (max-width: 600px) {
+
+
+                    display: none;
+
+
+
+                }
             }
 
             .nextClassName {
                 margin-left: auto;
+
+                @media only screen and (max-width: 600px) {
+
+
+                    display: none;
+
+                }
             }
         }
 

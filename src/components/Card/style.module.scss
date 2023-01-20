@@ -1,14 +1,3 @@
-@media only screen and (max-width: 500px) {
-
-    .card {
-        width: 165.5px !important;
-    }
-}
-
-
-
-
-
 .card {
 
     border: 2px solid #EAECF0;
@@ -18,6 +7,10 @@
 
 
     width: 176px;
+
+    @media only screen and (max-width: 600px) {
+        width: 165.5px;
+    }
 
     .details {
         display: flex;
