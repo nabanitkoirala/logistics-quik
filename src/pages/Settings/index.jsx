@@ -22,7 +22,11 @@ import styles from './style.module.scss'
 // import DropdownButton from '../../../components/Buttons/Dropdown';
 import PopDiv from '../../components/PopupDiv';
 // import dropdownSelect from '../../../assets/icons/dropdownSelect.svg';
+import eyeOpen from '../../assets/icons/eye.svg';
+import closeEye from '../../assets/icons/eyeClose.svg';
 const Setting = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
     const [test, setTest] = useState(false)
     const [data, setData] = useState([
         "ram", 'shyam', 'hari', 'hariram'
@@ -74,26 +78,35 @@ const Setting = () => {
                     <span>Edit your Personal, Business & Bank details here.</span>
                 </div>
                 <div className={styles.formData} >
-
                     <div className={styles.formData1} >
                         <span>Login Details</span>
                         <form>
                             <label htmlFor="fname">Email Address *</label>
                             <input type="email" id="fname" name="fname" />
                             <label htmlFor="lname">Password *</label>
-                            <input type="text" id="lname" name="lname" />
-                            <label htmlFor="lname">Re-Enter Password *</label>
-                            <input type="text" id="lname" name="lname" />
-                            <div className={styles.changePassword} >
+                            <div style={{ position: 'relative' }}>
 
+                                <input type={showPassword ? "text" : 'password'} id="lname" name="lname" />
+                                <img src={showPassword ? closeEye : eyeOpen}
+
+                                    alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
+                                    onClick={() => setShowPassword(!showPassword)} />
+                            </div>
+                            <label htmlFor="lname">Re-Enter Password *</label>
+                            <div style={{ position: 'relative' }}>
+
+                                <input type={showPasswordConfirm ? "text" : 'password'} id="lname" name="lname" />
+                                <img src={showPasswordConfirm ? closeEye : eyeOpen}
+
+                                    alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
+                                    onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} />
+                            </div>
+                            <div className={styles.changePassword} >
                                 <button type='button'>Change Password</button>
                             </div>
-
                             <p>
                                 Passwords must be 8 characters long & must contain at least one uppercase, one number and one symbol.
                             </p>
-
-
                         </form >
                     </div >
                     <div className={styles.formData1}>
