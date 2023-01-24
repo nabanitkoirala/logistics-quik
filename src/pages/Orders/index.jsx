@@ -48,6 +48,40 @@ const Order = ({ itemsPerPage }) => {
         );
         setItemOffset(newOffset);
     };
+    const tabSwitch = [
+        {
+            id: 1,
+            value: 'Today'
+        },
+        {
+            id: 2,
+            value: 'All Orders'
+        },
+        {
+            id: 3,
+            value: 'In Process'
+        },
+        {
+            id: 4,
+            value: 'Dispatched'
+        },
+        {
+            id: 5,
+            value: 'Delivered'
+        },
+        {
+            id: 6,
+            value: 'Canceled'
+        },
+        {
+            id: 7,
+            value: 'Returns'
+        },
+        {
+            id: 8,
+            value: 'Trash'
+        }
+    ]
     return (
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
@@ -168,7 +202,9 @@ const Order = ({ itemsPerPage }) => {
                     </div>
                 </div>
                 <div className={` ${styles.orderFilterTab}`} >
-                    <TabSwitch />
+                    <TabSwitch
+                        tabs={tabSwitch}
+                    />
                 </div>
                 <div className={styles.dataTable} >
                     <TableComponent />

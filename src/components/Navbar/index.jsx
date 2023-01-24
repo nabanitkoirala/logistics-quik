@@ -4,7 +4,7 @@ import notification from '../../assets/icons/notification.svg';
 import userImage from '../../assets/icons/user.svg';
 import dropDown from '../../assets/icons/dropdown.svg';
 import mainLogo from '../../assets/icons/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PopupDiv from '../PopupDiv';
 import notification1 from '../../assets/icons/notification1.svg';
 import notification2 from '../../assets/icons/notification2.svg';
@@ -15,10 +15,12 @@ import clock from '../../assets/icons/clock.svg';
 
 
 const Navbar = () => {
-    const [routeId, setRouteId] = useState(1)
+    const { pathname } = useLocation();
+
     const [showNotification, setShowNotification] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+    console.log("This is location", location)
     return (
         <div className={styles.mainContainer} >
 
@@ -65,21 +67,21 @@ const Navbar = () => {
                 </div>
                 <div className={styles.subContainer}>
                     <div className={styles.subContainerRight} >
-                        <Link to="/" className={`${styles.pageLink} ${routeId === 1 ? styles.activeRoute : ''}`} onClick={() => setRouteId(1)}>
+                        <Link to="/" className={`${styles.pageLink} ${pathname === "/" ? styles.activeRoute : ''}`}>
 
                             Dashboard
 
                         </Link>
-                        <Link to="/orders" className={`${styles.pageLink} ${routeId === 2 ? styles.activeRoute : ''}`} onClick={() => setRouteId(2)}>
+                        <Link to="/orders" className={`${styles.pageLink} ${pathname === "/orders" || pathname === "/orders/new-order" ? styles.activeRoute : ''}`}>
 
                             Orders
 
                         </Link>
 
-                        <Link to="/transaction" className={`${styles.pageLink} ${routeId === 3 ? styles.activeRoute : ''}`} onClick={() => setRouteId(3)}>Transactions</Link>
+                        <Link to="/transaction" className={`${styles.pageLink} ${pathname === "/transaction" ? styles.activeRoute : ''}`}>Transactions</Link>
 
 
-                        <Link to="/setting" className={`${styles.pageLink} ${routeId === 4 ? styles.activeRoute : ''}`} onClick={() => setRouteId(4)}>Settings</Link>
+                        <Link to="/setting" className={`${styles.pageLink} ${pathname === "/setting" ? styles.activeRoute : ''}`}>Settings</Link>
 
                     </div>
                     <div className={styles.subContainerSecondary} >
