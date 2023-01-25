@@ -4,8 +4,10 @@ import styles from './style.module.scss';
 import edit from '../../assets/icons/edit.svg';
 import printer from '../../assets/icons/printer.svg';
 import trash from '../../assets/icons/trash.svg';
+import { useNavigate } from 'react-router-dom';
 
 const TableComponent = () => {
+    const navigate = useNavigate();
     const [checked, setChecked] = useState(false)
     const [selectedRow, setSelectedRow] = useState(null)
     return (
@@ -38,7 +40,10 @@ const TableComponent = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}>
+                <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(1)
                         setChecked(!checked)
