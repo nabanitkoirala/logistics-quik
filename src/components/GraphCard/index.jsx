@@ -1,6 +1,7 @@
 
 import styles from './style.module.scss';
 import orderDays from '../../assets/icons/orderDays.svg';
+import Graph from '../Graph'
 const GraphCard = () => {
     return (
         <div className={styles.graphCard}>
@@ -11,6 +12,7 @@ const GraphCard = () => {
                     <img src={orderDays} alt="" />
                 </div>
             </div>
+            {/* <Graph /> */}
             <div className={styles.mainGraph} >
                 <div style={{ display: 'flex', flexDirection: 'column-reverse', alignItems: 'center', margin: '0px 5px' }} >
                     <span>S</span>

@@ -24,10 +24,17 @@ import PopDiv from '../../components/PopupDiv';
 // import dropdownSelect from '../../../assets/icons/dropdownSelect.svg';
 import eyeOpen from '../../assets/icons/eye.svg';
 import closeEye from '../../assets/icons/eyeClose.svg';
+import PopupDiv from '../../components/PopupDiv';
+import closeButton from '../../assets/icons/closeButton.svg';
 const Setting = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
-    const [test, setTest] = useState(false)
+    const [changePassword, setChangePassword] = useState(false)
+
+    const [currentPassword, setCurrentPassword] = useState(false)
+    const [newPassword, setNewPassword] = useState(false)
+    const [reNewPassword, setRenewPassword] = useState(false)
+
     const [data, setData] = useState([
         "ram", 'shyam', 'hari', 'hariram'
     ])
@@ -102,7 +109,74 @@ const Setting = () => {
                                     onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} />
                             </div>
                             <div className={styles.changePassword} >
-                                <button type='button'>Change Password</button>
+                                <button type='button' onClick={() => setChangePassword(true)} >Change Password</button>
+                                <div style={{ position: 'relative' }}>
+                                    <PopupDiv
+                                        show={changePassword}
+                                        setShowInfo={setChangePassword}
+                                        className={styles.changePasswordDiv}
+
+                                    >
+                                        <div className={styles.notificationContainer} >
+                                            <div className={styles.header} >
+                                                <span className={styles.notificationText} >Change Password</span>
+                                                <img src={closeButton} alt="" onClick={() => setChangePassword(false)} />
+
+                                            </div>
+
+
+                                            <div className={styles.notificationDesc} >
+
+
+                                                <div className={styles.details} >
+                                                    <label htmlFor="lname">Current Password *</label>
+                                                    <div style={{ position: 'relative' }}>
+
+                                                        <input type={currentPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <img src={currentPassword ? closeEye : eyeOpen}
+
+                                                            alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
+                                                            onClick={() => setCurrentPassword(!currentPassword)} />
+                                                    </div>
+                                                    <label htmlFor="lname">New Password *</label>
+                                                    <div style={{ position: 'relative' }}>
+
+                                                        <input type={newPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <img src={newPassword ? closeEye : eyeOpen}
+
+                                                            alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
+                                                            onClick={() => setNewPassword(!newPassword)} />
+                                                    </div>
+                                                    <label htmlFor="lname">Re-Enter New Password *</label>
+                                                    <div style={{ position: 'relative' }}>
+
+                                                        <input type={reNewPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <img src={reNewPassword ? closeEye : eyeOpen}
+
+                                                            alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
+                                                            onClick={() => setRenewPassword(!reNewPassword)} />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div className={styles.seeAll} >
+                                                <GeneralButton
+                                                    title="Cancel"
+                                                    className={styles.downloadButton}
+                                                    onClick={() => setChangePassword(false)}
+                                                />
+                                                <GeneralButton
+                                                    title="Change Password"
+                                                    className={styles.orderButton}
+
+
+                                                />
+                                            </div>
+
+                                        </div>
+
+                                    </PopupDiv>
+                                </div>
                             </div>
                             <p>
                                 Passwords must be 8 characters long & must contain at least one uppercase, one number and one symbol.
@@ -158,9 +232,7 @@ const Setting = () => {
                             <GeneralButton
                                 title="Cancel"
                                 className={styles.downloadButton}
-                                onClick={() => navigate('/orders')}
-
-
+                                onClick={() => navigate('/')}
                             />
                             <GeneralButton
                                 title="Save Changes"
