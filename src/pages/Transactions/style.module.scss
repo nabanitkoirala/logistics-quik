@@ -310,6 +310,10 @@
 
             }
 
+            @media only screen and (max-width: 600px) {
+                max-width: 343px;
+            }
+
             .searchFilterContainer {
                 display: flex;
                 justify-content: space-between;
@@ -511,6 +515,7 @@
                 display: flex;
                 justify-content: space-between;
                 flex-direction: row;
+                flex-direction: column;
 
                 /* Large devices (laptops/desktops, 992px and up) */
                 @media only screen and (max-width: 992px) {
@@ -535,94 +540,25 @@
                         display: none;
                     }
 
-                    .orderContentText {
-                        display: none;
-                    }
+
                 }
 
-                .downloadButtonsGroup {
+
+
+
+                span {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 150%;
+                    color: #667085;
+                }
+
+                .containerHeader {
                     display: flex;
-                    gap: 12px;
-
-                    @media only screen and (max-width: 600px) {
-                        justify-content: flex-end;
-                    }
-
-                    .notificationContainer {
-                        width: 169px;
-                        // height: 70px;
-                        background: #FFFFFF;
-                        border: 1px solid #EAECF0;
-                        /* Drop Twio */
-
-                        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-                        border-radius: 4px;
-                        padding: 8px;
-
-                        .header {
-                            // height: 36px;
-                            // padding: 8px 16px;
-                            // background-color: #FFFFFF;
-                            // border-bottom: 0.5px solid #EAECF0;
-                            // color: #667085;
-
-                            // font-style: normal;
-                            // font-weight: 400;
-                            // font-size: 12px;
-                            // line-height: 15px;
-                            width: 153px;
-                            height: 27px;
-
-                            /* Light Background */
-
-                            background: #F2F4F7;
-                            border-radius: 4px;
-                            padding: 6px 8px;
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 12px;
-                            line-height: 15px;
-                            /* identical to box height */
+                    justify-content: space-between;
 
 
-                            /* Text */
-
-                            color: #0C0F1E;
-                            cursor: pointer;
-
-                        }
-
-                        .secondHeader {
-                            width: 153px;
-                            height: 27px;
-                            padding: 6px 8px;
-                            border-radius: 4px;
-                            font-style: normal;
-                            font-weight: 400;
-                            font-size: 12px;
-                            line-height: 15px;
-                            /* identical to box height */
-                            cursor: pointer;
-
-                            /* Muted Text */
-
-                            color: #667085;
-                        }
-
-
-
-
-
-
-                    }
-
-                    .clickedButton {
-                        display: none;
-
-                        @media only screen and (max-width: 600px) {
-                            display: flex;
-                        }
-                    }
 
                     .downloadButton {
                         height: 32px;
@@ -644,55 +580,8 @@
                             font-weight: 500;
                         }
 
-                        @media only screen and (max-width: 600px) {
-                            height: 36px;
-                            width: 111px;
-                        }
+
                     }
-
-                    .orderButton {
-                        height: 32px;
-                        // width: 138px;
-                        background: #03373E;
-                        /* Stroke for buttons */
-
-                        border: 1px solid #D0D5DD;
-                        border-radius: 130px;
-                        padding: 8px 12px;
-                        white-space: nowrap;
-
-                        img {
-                            height: 20px;
-                            width: 20px;
-                        }
-
-                        span {
-                            color: #FFFFFF;
-                            font-weight: 500;
-                        }
-
-                        @media only screen and (max-width: 600px) {
-                            height: 36px;
-                            width: 112px;
-                        }
-                    }
-                }
-
-
-                span {
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 12px;
-                    line-height: 150%;
-                    color: #667085;
-                }
-
-                .containerHeader {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-direction: column;
-
-
 
                     .headerBeginner {
                         display: flex;

@@ -95,9 +95,9 @@ const Graph = () => {
             </div>
             <div className={styles.graphBars} >
                 {
-                    finalArraytoGraph.length && finalArraytoGraph.map(item => (<div key={item.day} style={{ display: 'flex', flexDirection: 'column-reverse', alignItems: 'center', margin: '0px 3.5px' }} >
+                    finalArraytoGraph.length && finalArraytoGraph.map(item => (<div key={item.day} style={{ display: 'flex', flexDirection: 'column-reverse', alignItems: 'center' }} >
                         <span>{item.day}</span>
-                        <div className={styles.bar} style={{ height: `${item.percentageValue}%`, width: '10px', backgroundColor: maxValue === item.value ? '#5DBB99' : '#BFEAE0', borderRadius: '5px' }} >
+                        <div className={styles.bar} style={{ height: `${item.percentageValue}%`, backgroundColor: maxValue === item.value ? '#5DBB99' : '#BFEAE0', borderRadius: '5px' }} >
                             <span className={styles.tooltipText} id="top"> {item.value}</span>
                         </div>
                     </div>))

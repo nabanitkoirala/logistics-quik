@@ -154,19 +154,17 @@ const Transactions = ({ itemsPerPage }) => {
                                 <span>Transactions</span>
 
                             </div>
-                            <span className={styles.orderContentText} >All pending balances are consolidated on every withdrawal. </span>
-                        </div>
-                        <div className={styles.downloadButtonsGroup} >
                             <GeneralButton
                                 title="Download Data"
                                 imgSource={download}
-                                className={`${styles.removeOnMobile} ${styles.downloadButton}`}
+                                className={`${styles.downloadButton}`}
 
                             />
-
-
-
                         </div>
+                        <span className={styles.orderContentText} >All pending balances are consolidated on every withdrawal. </span>
+
+
+
 
                     </div>
 
