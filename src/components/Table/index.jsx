@@ -78,7 +78,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 2 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 2 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(2)
                         setChecked(!checked)
@@ -113,7 +115,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 3 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 3 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(3)
                         setChecked(!checked)
@@ -147,7 +151,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 4 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 4 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(4)
                         setChecked(!checked)
@@ -181,7 +187,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 5 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 5 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(5)
                         setChecked(!checked)
@@ -215,7 +223,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 6 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 6 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(6)
                         setChecked(!checked)
@@ -249,7 +259,9 @@ const TableComponent = () => {
                         </div>
                     </td>
                 </tr>
-                <tr className={selectedRow === 7 || selectedRow === 'all' ? `${styles.activeRow}` : ''}>
+                <tr className={selectedRow === 7 || selectedRow === 'all' ? `${styles.activeRow}` : ''}
+                    onClick={() => navigate('/orders/123658')}
+                >
                     <td><Checkbox checked={checked} handleChange={() => {
                         setSelectedRow(7)
                         setChecked(!checked)

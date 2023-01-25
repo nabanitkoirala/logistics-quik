@@ -72,7 +72,7 @@ const Navbar = () => {
                             Dashboard
 
                         </Link>
-                        <Link to="/orders" className={`${styles.pageLink} ${pathname === "/orders" || pathname === "/orders/new-order" ? styles.activeRoute : ''}`}>
+                        <Link to="/orders" className={`${styles.pageLink} ${pathname === "/orders" || pathname === "/orders/new-order" || pathname === "/orders/123658" ? styles.activeRoute : ''}`}>
 
                             Orders
 
