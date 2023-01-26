@@ -1,58 +1,11 @@
 import styles from './style.module.scss';
 
 
-const data = [
-    {
-        day: '01',
-        value: 5000
-    },
-    {
-        day: '02',
-        value: 2000
-    },
-    {
-        day: '03',
-        value: 1200
-    }, {
-        day: '04',
-        value: 8000
-    },
-    {
-        day: '05',
-        value: 800
-    },
-    {
-        day: '06',
-        value: 1300
-    },
-    {
-        day: '07',
-        value: 1800
-    },
 
-    {
-        day: '08',
-        value: 2000
-    },
-    {
-        day: '09',
-        value: 1900
-    },
-    {
-        day: '10',
-        value: 200
-    },
-    {
-        day: '11',
-        value: 1568
-    },
-    {
-        day: '12',
-        value: 254
-    },
-]
 
-const Graph = () => {
+
+
+const Graph = ({ disableYaxisValue, barwidth, data }) => {
     data.reduce(function (previousValue, currentValue) {
         let result = previousValue + currentValue.value;
         return result;
@@ -89,15 +42,16 @@ const Graph = () => {
 
     return (
         <div className={styles.mainGraph} >
-            <div className={styles.indicator} >
-                {finalYaxisBarValue.map((item, i) => (<span key={i} >{item.value}</span>))}
+            {disableYaxisValue ? "" :
+                <div className={styles.indicator} >
+                    {finalYaxisBarValue.map((item, i) => (<span key={i} >{item.value}</span>))}
 
-            </div>
+                </div>}
             <div className={styles.graphBars} >
                 {
                     finalArraytoGraph.length && finalArraytoGraph.map(item => (<div key={item.day} style={{ display: 'flex', flexDirection: 'column-reverse', alignItems: 'center' }} >
                         <span>{item.day}</span>
-                        <div className={styles.bar} style={{ height: `${item.percentageValue}%`, backgroundColor: maxValue === item.value ? '#5DBB99' : '#BFEAE0', borderRadius: '5px' }} >
+                        <div className={styles.bar} style={{ width: barwidth ? barwidth : "", height: `${item.percentageValue}%`, backgroundColor: maxValue === item.value ? '#5DBB99' : '#BFEAE0', borderRadius: '5px' }} >
                             <span className={styles.tooltipText} id="top"> {item.value}</span>
                         </div>
                     </div>))

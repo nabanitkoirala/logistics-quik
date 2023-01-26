@@ -104,6 +104,28 @@ const OrderDetails = () => {
                                 <span className={styles.orderIdValue} >#847943</span>
                             </div>
                             <div className={styles.buttonGroup} >
+                                {/* <GeneralButton
+                                    title="Return Order"
+                                    className={styles.cancelOrderButton}
+
+                                />
+
+                                <GeneralButton
+                                    title="Exchange Order"
+                                    className={styles.exchangeOrderButton}
+
+                                />
+                                <GeneralButton
+                                    title="See Old Order Details"
+                                    className={styles.exchangeOrderButton}
+
+                                />
+                                <GeneralButton
+                                    title="Cancel Exchaneg Order"
+                                    className={styles.cancelOrderButton}
+
+                                /> */}
+
 
                                 <GeneralButton
                                     title="Cancel Order"
@@ -164,8 +186,17 @@ const OrderDetails = () => {
                                 <span>Status</span>
                             </div>
                             <div className={styles.statusValue} >
-                                Delivered
+                                Dispatched
                             </div>
+                            {/* <div className={styles.statusValue} >
+                                Delivered
+                            </div> */}
+                            {/* <div className={styles.statusValueUndelivered} >
+                                Undelivered
+                            </div> */}
+                            {/* <div className={styles.statusValueExchange} >
+                                Exchange
+                            </div> */}
                         </div>
 
                     </div>

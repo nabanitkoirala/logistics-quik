@@ -463,6 +463,8 @@
                     align-items: center;
                     gap: 72px;
                     margin: 10px 0px;
+                    width: 301px;
+                    justify-content: space-between;
 
                     .dateHeadingValue {
                         span {
@@ -494,6 +496,7 @@
                     align-items: center;
                     gap: 147px;
                     margin: 10px 0px;
+                    width: 301px;
 
                     .statusValue {
                         padding: 2px 12px;
@@ -514,6 +517,50 @@
                         align-items: center;
 
                         color: #2ABB9A;
+                        justify-content: center;
+                    }
+
+                    .statusValueUndelivered {
+                        padding: 2px 12px;
+                        gap: 10px;
+
+                        width: 89px;
+                        height: 22px;
+
+                        background: #F5E7E7;
+                        border-radius: 130px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 150%;
+                        /* identical to box height, or 18px */
+
+                        display: flex;
+                        align-items: center;
+
+                        color: #EC6363;
+                        justify-content: center;
+                    }
+
+                    .statusValueExchange {
+                        padding: 2px 12px;
+                        gap: 10px;
+
+                        width: 89px;
+                        height: 22px;
+
+                        background: #DDE2E3;
+                        border-radius: 130px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 150%;
+                        /* identical to box height, or 18px */
+
+                        display: flex;
+                        align-items: center;
+
+                        color: #03373E;
                         justify-content: center;
                     }
 
@@ -642,6 +689,37 @@
                             span {
                                 font-weight: 500;
                                 color: #EC6363;
+                                font-size: 12px;
+                                line-height: 15px;
+                            }
+
+                            @media only screen and (max-width: 600px) {
+                                height: 36px;
+
+                            }
+                        }
+
+                        .exchangeOrderButton {
+                            height: 32px;
+                            width: auto;
+                            /* White */
+
+                            background: #FFFFFF;
+                            /* Red */
+
+                            border: 1px solid #2ABB9A;
+                            border-radius: 130px;
+                            padding: 8px 12px;
+                            white-space: nowrap;
+
+                            img {
+                                height: 20px;
+                                width: 20px;
+                            }
+
+                            span {
+                                font-weight: 500;
+                                color: #2ABB9A;
                                 font-size: 12px;
                                 line-height: 15px;
                             }

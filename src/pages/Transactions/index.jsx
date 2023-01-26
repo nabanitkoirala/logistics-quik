@@ -34,6 +34,56 @@ function Items({ currentItems }) {
         </>
     );
 }
+const data = [
+    {
+        day: '01',
+        value: 5000
+    },
+    {
+        day: '02',
+        value: 2000
+    },
+    {
+        day: '03',
+        value: 1200
+    }, {
+        day: '04',
+        value: 8000
+    },
+    {
+        day: '05',
+        value: 800
+    },
+    {
+        day: '06',
+        value: 1300
+    },
+    {
+        day: '07',
+        value: 1800
+    },
+
+    {
+        day: '08',
+        value: 2000
+    },
+    {
+        day: '09',
+        value: 1900
+    },
+    {
+        day: '10',
+        value: 200
+    },
+    {
+        day: '11',
+        value: 1568
+    },
+    {
+        day: '12',
+        value: 254
+    },
+]
 const Transactions = ({ itemsPerPage }) => {
     const [openYearFilter, setOpenYearFilter] = useState(false)
     const [clickDownloadIcon, setClickDownloadIcon] = useState(false)
@@ -142,7 +192,9 @@ const Transactions = ({ itemsPerPage }) => {
                         </PopupDiv>
                     </div>
                     <div className={styles.fourthDiv} >
-                        <Graph />
+                        <Graph
+                            data={data}
+                        />
                     </div>
 
                 </div>
