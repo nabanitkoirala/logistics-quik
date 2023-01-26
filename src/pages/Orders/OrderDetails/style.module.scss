@@ -20,8 +20,10 @@
     }
 
     @media only screen and (max-width: 600px) {
-        max-width: 343px;
+        max-width: unset;
+        margin: 0px 16px;
     }
+
 
     .breadCrump {
         display: flex;
@@ -112,7 +114,8 @@
         display: flex;
 
         @media only screen and (max-width: 600px) {
-            width: 343px;
+            width: 100%;
+            flex-direction: column;
         }
 
         .secondaryDiv {
@@ -261,6 +264,8 @@
                     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
                     border-radius: 4px;
                     padding: 4px;
+
+
 
                     .submitButton {
                         display: flex;
@@ -426,6 +431,11 @@
             width: 870px;
             border-right: 1px solid #EAECF0;
 
+            @media only screen and (max-width: 600px) {
+                width: 100%;
+                border-right: unset;
+            }
+
             .firstPart {
                 padding: 12px 16px;
                 border-bottom: 1px solid #EAECF0;
@@ -466,6 +476,10 @@
                     width: 301px;
                     justify-content: space-between;
 
+                    @media only screen and (max-width: 600px) {
+                        width: auto;
+                    }
+
                     .dateHeadingValue {
                         span {
 
@@ -497,6 +511,11 @@
                     gap: 147px;
                     margin: 10px 0px;
                     width: 301px;
+
+                    @media only screen and (max-width: 600px) {
+                        width: auto;
+                        justify-content: space-between;
+                    }
 
                     .statusValue {
                         padding: 2px 12px;
@@ -595,10 +614,22 @@
                     align-items: center;
                     flex-direction: row;
 
+                    @media only screen and (max-width: 600px) {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
 
                     .buttonGroup {
                         display: flex;
                         gap: 12px;
+                        align-items: flex-start;
+
+                        .groupButtons {
+                            display: flex;
+                            gap: 12px;
+                            flex-wrap: wrap;
+                            align-items: flex-start;
+                        }
 
                         .notificationContainer {
                             width: 169px;
@@ -914,6 +945,10 @@
             .secondPart {
                 display: flex;
 
+                @media only screen and (max-width: 600px) {
+                    flex-direction: column;
+                }
+
                 .firstRowBorderRight {
                     border-right: 1px solid #EAECF0;
                 }
@@ -921,6 +956,12 @@
                 .firstRow {
                     width: 435px;
                     padding: 12px 24px;
+
+                    @media only screen and (max-width: 600px) {
+                        width: auto;
+                        border-right: unset;
+                        padding: 12px 16px;
+                    }
 
                     .categoryHeading {
                         span {
@@ -1015,6 +1056,8 @@
 
             @media only screen and (max-width: 600px) {
                 flex-wrap: wrap;
+                width: auto;
+                padding: 12px 16px 16px;
 
             }
 
@@ -1040,7 +1083,10 @@
 
 
 
+                        @media only screen and (max-width: 600px) {
+                            left: -275px !important;
 
+                        }
 
 
 
@@ -1180,6 +1226,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-start;
+                    margin: 10px 0px;
 
                     .titleSubCategory {
                         display: flex;
@@ -1230,6 +1277,11 @@
                             align-items: center;
                             gap: 5px;
                             padding: 10px 0px;
+
+                            @media only screen and (max-width: 600px) {
+                                width: 25px;
+
+                            }
 
                         }
                     }

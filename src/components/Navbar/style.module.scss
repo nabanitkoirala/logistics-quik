@@ -1,26 +1,26 @@
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .mainContainer {
-        .subMainContainer {
-            .notificationContainer {
-                width: 400px !important;
+// @media only screen and (max-width: 600px) {
+//     .mainContainer {
+//         .subMainContainer {
+//             .notificationContainer {
+//                 width: 400px !important;
 
-                .header {
-                    height: 36px;
-                    padding: 8px 16px;
-                    background-color: #FFFFFF;
-                    border-bottom: 0.5px solid #EAECF0;
-                    color: #667085;
+//                 .header {
+//                     height: 36px;
+//                     padding: 8px 16px;
+//                     background-color: #FFFFFF;
+//                     border-bottom: 0.5px solid #EAECF0;
+//                     color: #667085;
 
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 12px;
-                    line-height: 15px;
-                }
-            }
-        }
-    }
-}
+//                     font-style: normal;
+//                     font-weight: 400;
+//                     font-size: 12px;
+//                     line-height: 15px;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 .mainContainer {
     background-color: red;
@@ -52,7 +52,8 @@
         }
 
         @media only screen and (max-width: 600px) {
-            max-width: 343px;
+            max-width: unset;
+            margin: 0px 16px;
         }
 
         .logo {

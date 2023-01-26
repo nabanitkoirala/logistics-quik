@@ -194,6 +194,7 @@ const Transactions = ({ itemsPerPage }) => {
                     <div className={styles.fourthDiv} >
                         <Graph
                             data={data}
+                            barwidth={styles.barwidth}
                         />
                     </div>
 

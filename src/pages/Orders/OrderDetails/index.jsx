@@ -104,18 +104,19 @@ const OrderDetails = () => {
                                 <span className={styles.orderIdValue} >#847943</span>
                             </div>
                             <div className={styles.buttonGroup} >
-                                {/* <GeneralButton
-                                    title="Return Order"
-                                    className={styles.cancelOrderButton}
+                                <div className={styles.groupButtons} >
+                                    <GeneralButton
+                                        title="Return Order"
+                                        className={styles.cancelOrderButton}
 
-                                />
+                                    />
 
-                                <GeneralButton
-                                    title="Exchange Order"
-                                    className={styles.exchangeOrderButton}
+                                    <GeneralButton
+                                        title="Exchange Order"
+                                        className={styles.exchangeOrderButton}
 
-                                />
-                                <GeneralButton
+                                    />
+                                    {/* <GeneralButton
                                     title="See Old Order Details"
                                     className={styles.exchangeOrderButton}
 
@@ -127,16 +128,18 @@ const OrderDetails = () => {
                                 /> */}
 
 
-                                <GeneralButton
+                                    {/* <GeneralButton
                                     title="Cancel Order"
                                     className={styles.cancelOrderButton}
 
-                                />
-                                <GeneralButton
-                                    title="Edit details"
-                                    className={styles.editOrderButton}
+                                /> */}
+                                    <GeneralButton
+                                        title="Edit details"
+                                        className={styles.editOrderButton}
 
-                                />
+                                    />
+                                </div>
+
                                 <IconButton
                                     imgSource={clickDownloadIcon ? moreButtonSelect : moreButton}
                                     onClick={() => setClickDownloadIcon(true)}

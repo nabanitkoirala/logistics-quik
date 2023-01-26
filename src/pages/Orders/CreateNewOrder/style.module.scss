@@ -20,7 +20,8 @@
     }
 
     @media only screen and (max-width: 600px) {
-        max-width: 343px;
+        max-width: unset;
+        margin: 0px 16px;
     }
 
     .breadCrump {
@@ -430,6 +431,10 @@
 
 
             .formData1 {
+                @media only screen and (max-width: 600px) {
+                    padding: 16px 16px;
+
+                }
 
                 padding: 16px 48px;
                 gap: 16px;
