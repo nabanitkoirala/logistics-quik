@@ -20,7 +20,7 @@ import upload from '../../../assets/icons/upload.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss'
 import DropdownButton from '../../../components/Buttons/Dropdown';
-import PopDiv from '../../../components/PopupDiv';
+
 import dropdownSelect from '../../../assets/icons/dropdownSelect.svg';
 import moreButton from '../../../assets/icons/moreButton.svg';
 import arrowRight from '../../../assets/icons/arrowRight.svg';
@@ -46,7 +46,16 @@ import line from '../../../assets/icons/line1.svg';
 import watch from '../../../assets/icons/watch.svg';
 import delivery from '../../../assets/icons/delivery.svg';
 import comment from '../../../assets/icons/comment.svg';
+import PopDiv from '../../../components/PopupDiv'
+import closeButton from '../../../assets/icons/closeButton.svg';
+import commentUser from '../../../assets/icons/commentUser.svg';
+import replyUser from '../../../assets/icons/commentReply.svg';
+import signature from '../../../assets/icons/signature.svg';
+import moreButtonSelect from '../../../assets/icons/moreButtonSelect.svg';
 const OrderDetails = () => {
+    const [postComment, setPostComment] = useState(false)
+    const [showProofDelivery, setShowProofDelivery] = useState(false)
+    const [clickDownloadIcon, setClickDownloadIcon] = useState(false)
     const [test, setTest] = useState(false)
     const [data, setData] = useState([
         "ram", 'shyam', 'hari', 'hariram'
@@ -107,11 +116,29 @@ const OrderDetails = () => {
 
                                 />
                                 <IconButton
-                                    imgSource={moreButton}
-                                    // onClick={() => setClickDownloadIcon(true)}
+                                    imgSource={clickDownloadIcon ? moreButtonSelect : moreButton}
+                                    onClick={() => setClickDownloadIcon(true)}
                                     className={styles.clickedButton}
 
                                 />
+                                <div style={{ position: 'relative', height: '10px' }} >
+                                    <PopDiv
+                                        show={clickDownloadIcon}
+                                        setShowInfo={setClickDownloadIcon}
+                                        className={styles.dropdown}
+
+                                    >
+                                        <div className={styles.notificationContainer} style={{ position: 'absolute', top: '-18px', left: '-178px' }} >
+                                            <div className={styles.header} >
+                                                Print Invoice
+                                            </div>
+                                            <div className={styles.secondHeader} >
+                                                Print Shipping Label
+                                            </div>
+
+                                        </div>
+                                    </PopDiv>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.containerAddressShipping} >
@@ -316,78 +343,119 @@ const OrderDetails = () => {
                     </div>
                 </div>
                 <div className={styles.trackData} >
-                    <div className={styles.heading}>
-                        <span>
-                            Tracking
-                        </span>
-                    </div>
-                    <div className={styles.titleDiv} >
-                        <div className={styles.titleSubCategory} >
-                            <div className={styles.imageCategory} >
-                                <img src={circle} alt='' height={8} width={8} />
-                                <img src={line} alt='' height={64} />
-                            </div>
-                            <div className={styles.details} >
-                                <span>Package Order Created</span>
-                                <div className={styles.timeDetails} >
-                                    <img src={watch} alt='' />
-                                    <span>
-                                        7:00 am Tue 1/10/2023
-                                    </span>
-                                </div>
-                                <span>-</span>
-                            </div>
-                        </div>
-                        <div className={styles.titleSubCategory} >
-                            <div className={styles.imageCategory} >
-                                <img src={circle} alt='' height={8} width={8} />
-                                <img src={line} alt='' height={64} />
-                            </div>
-                            <div className={styles.details} >
-                                <span>Package Received At Warehouse</span>
-                                <div className={styles.timeDetails} >
-                                    <img src={watch} alt='' />
-                                    <span>
-                                        7:00 am Tue 1/10/2023
-                                    </span>
-                                </div>
-                                <span>-</span>
-                            </div>
-                        </div>
-                        <div className={styles.titleSubCategory} >
-                            <div className={styles.imageCategory} >
-                                <img src={circle} alt='' height={8} width={8} />
-                                <img src={line} alt='' height={64} />
-                            </div>
-                            <div className={styles.details} >
-                                <span>Package Processing</span>
-                                <div className={styles.timeDetails} >
-                                    <img src={watch} alt='' />
-                                    <span>
-                                        7:00 am Tue 1/10/2023
-                                    </span>
-                                </div>
-                                <span>-</span>
-                            </div>
-                        </div>
-                        <div className={styles.titleSubCategory} >
-                            <div className={styles.imageCategory} >
-                                <img src={delivery} alt='' height={28} width={28} />
-                                <img src={line} alt='' height={64} />
-                            </div>
-                            <div className={styles.details} >
-                                <span>Package Dispatched For Delivery</span>
-                                <div className={styles.timeDetails} >
-                                    <img src={watch} alt='' />
-                                    <span>
-                                        7:00 am Tue 1/10/2023
-                                    </span>
-                                </div>
-                                <span>-</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div className={styles.mainTrackDataDiv} >
 
+
+                        <div className={styles.heading}>
+                            <span>
+                                Tracking
+                            </span>
+                        </div>
+                        <div className={styles.titleDiv} >
+                            <div className={styles.titleSubCategory} >
+                                <div className={styles.imageCategory} style={{ padding: '0px', margin: '2px 0px' }}>
+                                    <img src={circle} alt='' height={8} width={8} />
+                                    <img src={line} alt='' height={64} />
+                                </div>
+                                <div className={styles.details} >
+                                    <span>Package Order Created</span>
+                                    <div className={styles.timeDetails} >
+                                        <img src={watch} alt='' />
+                                        <span>
+                                            7:00 am Tue 1/10/2023
+                                        </span>
+                                    </div>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div className={styles.titleSubCategory} >
+                                <div className={styles.imageCategory} style={{ padding: '0px', margin: '2px 0px' }}>
+                                    <img src={circle} alt='' height={8} width={8} />
+                                    <img src={line} alt='' height={64} />
+                                </div>
+                                <div className={styles.details} >
+                                    <span>Package Received At Warehouse</span>
+                                    <div className={styles.timeDetails} >
+                                        <img src={watch} alt='' />
+                                        <span>
+                                            7:00 am Tue 1/10/2023
+                                        </span>
+                                    </div>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div className={styles.titleSubCategory} >
+                                <div className={styles.imageCategory} style={{ padding: '0px', marginTop: '2px' }}>
+                                    <img src={circle} alt='' height={8} width={8} />
+                                    <img src={line} alt='' height={64} />
+                                </div>
+                                <div className={styles.details} >
+                                    <span>Package Processing</span>
+                                    <div className={styles.timeDetails} >
+                                        <img src={watch} alt='' />
+                                        <span>
+                                            7:00 am Tue 1/10/2023
+                                        </span>
+                                    </div>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div className={styles.titleSubCategory} >
+                                <div className={styles.imageCategory} style={{ padding: '0px', gap: 'unset' }} >
+                                    <img src={delivery} alt='' height={28} width={28} />
+                                    <img src={line} alt='' height={36} />
+                                </div>
+                                <div className={styles.details} >
+                                    <span>Package Dispatched For Delivery</span>
+                                    <div className={styles.timeDetails} >
+                                        <img src={watch} alt='' />
+                                        <span>
+                                            7:00 am Tue 1/10/2023
+                                        </span>
+                                    </div>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.footerButton} >
+                        <GeneralButton
+                            title="See Proof Of Delivery"
+                            className={styles.editOrderButton}
+                            onClick={() => setShowProofDelivery(true)}
+
+                        />
+                        <div style={{ position: 'relative', height: '10px' }} >
+                            <PopDiv
+                                show={showProofDelivery}
+                                setShowInfo={setShowProofDelivery}
+                                className={styles.dropdown}
+
+                            >
+                                <div className={styles.notificationContainer} style={{ position: 'absolute', top: '-345px', left: '-353px' }} >
+                                    <div className={styles.header} >
+                                        <span className={styles.notificationText} >Proof Of Delivery</span>
+                                        <img src={closeButton} alt="" onClick={() => setShowProofDelivery(false)} height={18} width={18} />
+                                    </div>
+                                    <div className={styles.secondHeader}  >
+                                        <div className={styles.signature} >
+
+                                            <img src={signature} alt="" width={171.28} height={75.12} />
+                                        </div>
+                                    </div>
+                                    <div className={styles.secondHeader}  >
+                                        <div className={styles.signature} style={{ border: 'none', gap: '10px', flexDirection: 'column', justifyContent: 'unset', alignItems: 'unset' }}>
+                                            <span>Picture</span>
+                                            <div style={{ height: '117px' }} >
+
+                                                {/* <img src={signature} alt="" width={171.28} height={75.12} /> */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </PopDiv>
+                        </div>
+                    </div>
 
 
                 </div >
@@ -403,16 +471,84 @@ const OrderDetails = () => {
                         <GeneralButton
                             title="Post Comment"
                             className={styles.cancelOrderButton}
+                            onClick={() => setPostComment(true)}
                         />
+
+                    </div>
+                    <div style={{ position: 'relative', height: '10px' }} >
+                        <PopDiv
+                            show={postComment}
+                            setShowInfo={setPostComment}
+                            className={styles.dropdown}
+
+                        >
+                            <div className={styles.notificationContainer} style={{ position: 'absolute', top: '-120px', left: '-262px' }} >
+                                <div className={styles.header} >
+                                    <span className={styles.notificationText} >Add Order Comment</span>
+                                    <img src={closeButton} alt="" onClick={() => setPostComment(false)} height={18} width={18} />
+                                </div>
+                                <div className={styles.secondHeader} >
+                                    <span>Comment</span>
+                                    <textarea type="text" />
+                                </div>
+                                <div className={styles.submitButton}>
+                                    <GeneralButton
+                                        title="Cancel"
+                                        className={styles.downloadButton}
+                                        onClick={() => navigate('/')}
+                                    />
+                                    <GeneralButton
+                                        title="Post"
+                                        className={styles.orderButton}
+
+
+                                    />
+                                </div>
+                            </div>
+                        </PopDiv>
                     </div>
                     <p>Please use comments for any edits or changes
                         after the order has been processed or contact our <Link to="/">Support</Link></p>
                 </div>
                 <div className={styles.secondaryDiv} >
-                    <div className={styles.noCommentDiv} >
+                    {/* <div className={styles.noCommentDiv} >
                         <img src={comment} alt="" height={60} width={60} />
                         <span className={styles.noComments} >No comments available</span>
                         <span className={styles.clickForComment} >Click to add new comment </span>
+                    </div> */}
+                    <div className={styles.comment} >
+                        <img src={commentUser} alt="" height={30} width={30} />
+                        <div className={styles.mainComment} >
+                            <p>
+                                Please change COD amount to 3000 instead of 2000, it was entered by mistake
+                            </p>
+
+                            <div className={styles.timeDetails} >
+                                <img src={watch} alt='' />
+                                <span>
+                                    7:00 am Tue 1/10/2023
+                                </span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div className={`${styles.comment} ${styles.replyComment}`} >
+                        <img src={replyUser} alt="" height={30} width={30} />
+                        <div className={styles.mainComment} >
+                            <p>
+                                Please change COD amount to 3000 instead of 2000, it was entered by mistake
+                            </p>
+
+                            <div className={styles.timeDetails} >
+                                <img src={watch} alt='' />
+                                <span>
+                                    7:00 am Tue 1/10/2023
+                                </span>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 
