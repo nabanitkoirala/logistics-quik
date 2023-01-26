@@ -62,7 +62,101 @@ const Navbar = () => {
                         >
                             <img className={styles.mainImage} src={notification} alt="" />
                             <div className={styles.notificationCount} >6</div>
+                            <PopupDiv
+                                show={showNotification}
+                                setShowInfo={setShowNotification}
+                                className={styles.mainDivNotification}
 
+
+                            >
+                                <div className={styles.notificationContainerFullScreen} >
+                                    <div className={styles.header} >
+                                        <span className={styles.notificationText} >Notification</span>
+                                        <span className={styles.markRead} >Mark all as read</span>
+                                    </div>
+
+                                    <div className={styles.today} >Today</div>
+                                    <div className={styles.notificationDesc} >
+
+                                        <img src={notification1} alt="" width={32} height={32} />
+                                        <div className={styles.details} >
+                                            <span>
+                                                Your issue with order #230456 has been resolved
+                                            </span>
+                                            <div className={styles.timeDetails} >
+                                                <img src={clock} alt="" height={10} width={10} />
+                                                <span>9:15 am</span>
+                                                <span>Tue</span>
+                                                <span>1/10/2023</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div className={styles.notificationDesc} >
+                                        <img src={notification2} alt="" width={32} height={32} />
+                                        <div className={styles.details} >
+                                            <span>
+                                                Withdrawal request verified
+                                            </span><br />
+                                            <span className={styles.contentData} >
+                                                Your issue with order #230456 has been resolved
+                                            </span>
+                                            <div className={styles.timeDetails} >
+                                                <img src={clock} alt="" height={10} width={10} />
+                                                <span>9:15 am</span>
+                                                <span>Tue</span>
+                                                <span>1/10/2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.today} >Earlier</div>
+                                    <div className={styles.notificationDesc} >
+                                        <img src={notification1} alt="" width={32} height={32} />
+                                        <div className={styles.details} >
+                                            <span>
+                                                Your issue with order #230456 has been resolved
+                                            </span>
+                                            <div className={styles.timeDetails} >
+                                                <img src={clock} alt="" height={10} width={10} />
+                                                <span>9:15 am</span>
+                                                <span>Tue</span>
+                                                <span>1/10/2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.notificationDesc} >
+                                        <img src={notification2} alt="" width={32} height={32} />
+                                        <div className={styles.details} >
+                                            <span>
+                                                Order no #567850 not delivered
+                                            </span>
+                                            <div className={styles.timeDetails} >
+                                                <img src={clock} alt="" height={10} width={10} />
+                                                <span>9:15 am</span>
+                                                <span>Tue</span>
+                                                <span>1/10/2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.notificationDesc} >
+                                        <img src={notification2} alt="" width={32} height={32} />
+                                        <div className={styles.details} >
+                                            <span>
+                                                Order no #567851 not delivered
+                                            </span>
+                                            <div className={styles.timeDetails} >
+                                                <img src={clock} alt="" height={10} width={10} />
+                                                <span>9:15 am</span>
+                                                <span>Tue</span>
+                                                <span>1/10/2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={styles.seeAll} >See All</div>
+
+                                </div>
+
+                            </PopupDiv>
 
 
                         </div>
@@ -228,6 +322,7 @@ const Navbar = () => {
                     show={showNotification}
                     setShowInfo={setShowNotification}
                     className={styles.mainDivNotification}
+
 
                 >
                     <div className={styles.notificationContainer} >

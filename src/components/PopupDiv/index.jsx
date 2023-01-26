@@ -6,7 +6,8 @@ const InfoBox = ({
     show,
     children,
     setShowInfo,
-    className
+    className,
+    right
 }) => {
     const ref = useRef(null);
     useEffect(() => {
@@ -21,7 +22,7 @@ const InfoBox = ({
     if (!show) { return null; }
 
     return (
-        <div ref={ref} id="12" className={`${className} ${styles.mainContainer}`} >
+        <div ref={ref} id="12" className={`${className} ${styles.mainContainer}`} style={{ right: `${right}px` }} >
             {children}
         </div>
     );
