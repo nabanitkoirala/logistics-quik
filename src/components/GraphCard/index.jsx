@@ -48,8 +48,9 @@ const GraphCard = () => {
             <div className={styles.mainGraph} >
                 <Graph
                     disableYaxisValue
-                    barwidth="20px"
+                    barwidth={styles.barwidth}
                     data={data}
+                    graphContainer={styles.graphContainer}
 
                 />
             </div>

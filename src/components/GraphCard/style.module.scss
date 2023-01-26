@@ -1,22 +1,3 @@
-@media only screen and (max-width: 500px) {
-
-    .graphCard {
-        width: 343px !important;
-
-        .graphCardDetails {
-            width: 40% !important;
-            gap: 45px !important;
-            justify-content: unset !important;
-
-        }
-
-        .mainGraph {
-            width: 60% !important;
-        }
-    }
-
-}
-
 .graphCard {
 
     border: 2px solid #EAECF0;
@@ -26,12 +7,24 @@
     display: flex;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
 
+    @media only screen and (max-width: 600px) {
+        width: 343px !important;
+
+    }
+
     .graphCardDetails {
         width: 45%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 10px 16px;
+
+        @media only screen and (max-width: 600px) {
+            width: 40% !important;
+            gap: 45px !important;
+            justify-content: unset !important;
+
+        }
 
         .count {
             display: flex;
@@ -56,6 +49,39 @@
         width: 55%;
         display: flex;
         padding: 10px 16px;
+
+        @media only screen and (max-width: 600px) {
+            width: 60% !important;
+
+        }
+
+        .barwidth {
+            width: 20px !important;
+
+            @media only screen and (max-width: 1216px) {
+                width: 20px !important;
+            }
+
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (max-width: 992px) {
+                width: 20px !important;
+
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 20px !important;
+
+            }
+
+            @media only screen and (max-width: 600px) {
+                width: 20px !important;
+            }
+
+        }
+
+        .graphContainer {
+            padding: 0px;
+        }
 
         span {
             font-size: 10px;
