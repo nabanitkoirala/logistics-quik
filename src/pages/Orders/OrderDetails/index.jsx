@@ -569,7 +569,7 @@ const OrderDetails = () => {
                     </div>
                     <div className={`${styles.comment} ${styles.replyComment}`} >
                         <img src={replyUser} alt="" height={30} width={30} />
-                        <div className={styles.mainComment} >
+                        <div className={`${styles.mainComment} ${styles.rply} `} >
                             <p>
                                 Please change COD amount to 3000 instead of 2000, it was entered by mistake
                             </p>

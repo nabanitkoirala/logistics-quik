@@ -124,7 +124,7 @@
 
             .comment {
                 width: 355px;
-                height: 82px;
+
                 gap: 16px;
                 display: flex;
                 margin: 5px 0px;
@@ -134,12 +134,17 @@
 
 
                     width: 309px;
-                    height: 82px;
+
 
                     /* Stroke */
 
                     border: 1px solid #EAECF0;
                     border-radius: 4px;
+
+                    @media only screen and (max-width: 600px) {
+                        width: 265px;
+
+                    }
 
                     p {
                         font-style: normal;
@@ -181,9 +186,14 @@
 
             .replyComment {
                 padding: 0px 48px;
-
-
                 width: 451px;
+
+                .rply {
+                    @media only screen and (max-width: 600px) {
+                        width: 217px;
+
+                    }
+                }
             }
 
             .noCommentDiv {
