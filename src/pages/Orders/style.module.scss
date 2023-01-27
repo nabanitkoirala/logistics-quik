@@ -171,7 +171,7 @@
                 border-radius: 160px;
                 background-repeat: no-repeat;
                 background-size: contain;
-                background-size: 18px 18px;
+                background-size: 14px 14px;
                 background-origin: content-box;
                 padding-left: 10px;
                 background-image: url('../../assets/icons/search.svg');
@@ -183,6 +183,15 @@
                     font-weight: 500;
                     font-size: 12px;
                     line-height: 15px;
+                }
+
+                &:hover {
+                    border: 1px solid #667085;
+                }
+
+                &:focus-visible {
+                    border: 1px solid #03373E;
+                    outline: none;
                 }
 
                 @media only screen and (max-width: 992px) {
@@ -385,6 +394,17 @@
                         height: 36px;
                         width: 111px;
                     }
+
+                    &:hover {
+                        border: 1px solid #667085;
+                    }
+
+                    &:active {
+                        background: #DDE2E3;
+                        /* Dark Green/Daark */
+
+                        border: 1px solid #03373E;
+                    }
                 }
 
                 .orderButton {
@@ -411,6 +431,14 @@
                     @media only screen and (max-width: 600px) {
                         height: 36px;
                         width: 112px;
+                    }
+
+                    &:hover {
+                        background: #055A65;
+                    }
+
+                    &:active {
+                        background: #03373E;
                     }
                 }
             }

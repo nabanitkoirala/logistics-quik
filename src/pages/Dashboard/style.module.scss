@@ -90,6 +90,14 @@
                     font-size: 12px;
                     font-weight: 500;
                 }
+
+                &:hover {
+                    background: #00AB56;
+                }
+
+                &:active {
+                    background-color: #6DCD68;
+                }
             }
         }
     }

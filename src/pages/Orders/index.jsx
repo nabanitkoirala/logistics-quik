@@ -10,7 +10,7 @@ import shippingLabel from '../../assets/icons/shippingLabel.svg';
 import add from '../../assets/icons/add.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import TabSwitch from '../../components/TabSwitch';
-import DropdownButton from '../../components/Buttons/Dropdown';
+import DropdownButton from '../../components/Dropdown';
 import IconButton from '../../components/Buttons/IconButton';
 import moreButton from '../../assets/icons/moreButton.svg';
 import PopupDiv from '../../components/PopupDiv';

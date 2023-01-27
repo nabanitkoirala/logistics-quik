@@ -19,7 +19,7 @@ import GraphCard from '../../../components/GraphCard';
 import upload from '../../../assets/icons/upload.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss'
-import DropdownButton from '../../../components/Buttons/Dropdown';
+import DropdownButton from '../../../components/Dropdown';
 
 import dropdownSelect from '../../../assets/icons/dropdownSelect.svg';
 import moreButton from '../../../assets/icons/moreButton.svg';
