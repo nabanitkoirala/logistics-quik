@@ -58,7 +58,7 @@ const Dashboard = ({ itemsPerPage }) => {
                     <span style={{ marginLeft: '8px', fontWeight: '400', fontSize: '12px', color: '#667085' }} >Jan 5,2022</span>
                 </div>
                 <div className={styles.buttons} >
-                    <DropdownButton />
+
                     <IconButton
                         imgSource={setting}
                     />
