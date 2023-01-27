@@ -1,27 +1,9 @@
 
-
 import dashboardBreadCrump from '../../assets/icons/dashboardBreadCrump.svg';
-// import setting from '../../../assets/icons/setting.svg';
-// import transaction from '../../../assets/icons/transaction.svg';
-// import TableComponent from '../../../components/Table';
-// import ReactPaginate from 'react-paginate';
 import { useEffect, useState } from 'react';
 import GeneralButton from '../../components/Buttons/GeneralButton';
-// import IconButton from '../../../components/Buttons/IconButton';
-// import Card from '../../../components/Card';
-// import add from '../../../assets/icons/add.svg';
-// import order from '../../../assets/icons/order.svg';
-// import delivered from '../../../assets/icons/delivered.svg';
-// import returns from '../../../assets/icons/returns.svg';
-// import orderValue from '../../../assets/icons/orderValue.svg';
-// import orderDays from '../../../assets/icons/orderDays.svg';
-// import GraphCard from '../../../components/GraphCard';
-import upload from '../../assets/icons/upload.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss'
-// import DropdownButton from '../../../components/Buttons/Dropdown';
-import PopDiv from '../../components/PopupDiv';
-// import dropdownSelect from '../../../assets/icons/dropdownSelect.svg';
 import eyeOpen from '../../assets/icons/eye.svg';
 import closeEye from '../../assets/icons/eyeClose.svg';
 import PopupDiv from '../../components/PopupDiv';

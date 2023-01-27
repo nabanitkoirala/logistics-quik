@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Orders from "./pages/Orders";
 import CreateNewOrder from "./pages/Orders/CreateNewOrder";
+import BulkOrder from "./pages/Orders/CreateNewOrder/BulkOrderUpload";
 import OrderDetails from "./pages/Orders/OrderDetails";
 import Settings from "./pages/Settings";
 import Transactions from "./pages/Transactions";
@@ -34,6 +35,12 @@ function App() {
         <Route index path="orders/new-order" element={
           <Layout>
             <CreateNewOrder />
+          </Layout>
+
+        } />
+        <Route index path="orders/bulk-upload" element={
+          <Layout>
+            <BulkOrder />
           </Layout>
 
         } />

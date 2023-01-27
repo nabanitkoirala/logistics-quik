@@ -137,6 +137,7 @@ const Order = ({ itemsPerPage }) => {
                             title="Bulk Order"
                             className={styles.downloadButton}
                             imgSource={upload}
+                            onClick={() => navigate('/orders/bulk-upload')}
 
                         />
                         <GeneralButton
