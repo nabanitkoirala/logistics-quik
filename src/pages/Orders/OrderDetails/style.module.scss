@@ -146,6 +146,11 @@
 
                     }
 
+                    @media only screen and (max-width: 365px) {
+                        width: 250px;
+
+                    }
+
                     p {
                         font-style: normal;
                         font-weight: 400;
@@ -191,6 +196,11 @@
                 .rply {
                     @media only screen and (max-width: 600px) {
                         width: 217px;
+
+                    }
+
+                    @media only screen and (max-width: 365px) {
+                        width: 202px;
 
                     }
                 }
@@ -249,7 +259,7 @@
                 font-size: 12px;
                 line-height: 150%;
                 /* or 18px */
-
+                flex-wrap: wrap;
                 display: flex;
                 align-items: center;
 
