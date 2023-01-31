@@ -8,10 +8,11 @@ import PopDiv from '../../../components/PopupDiv';
 const CreateNewOrder = () => {
     const [test, setTest] = useState(false)
     const [data, setData] = useState([
-        "ram", 'shyam', 'hari', 'hariram'
+        'shyam', 'hari', 'hariram'
     ])
+    const [dataIndex, setDataIndex] = useState(null);
     const [backup, setBackup] = useState([
-        "ram", 'shyam', 'hari', 'hariram'
+        'shyam', 'hari', 'hariram'
     ])
     const [reserveValue, setReserveValue] = useState('')
     console.log("Is this displayed")
@@ -30,6 +31,34 @@ const CreateNewOrder = () => {
         setData(filterdata)
 
     }, [reserveValue])
+    console.log("This is data index", dataIndex)
+    const handleKeyDown = (e) => {
+        // e.preventDefault()
+        if (e.key === 'ArrowDown') {
+            if (dataIndex === null) {
+                setDataIndex(0)
+
+            } else if (dataIndex < (data.length - 1)) {
+                setDataIndex(dataIndex + 1)
+
+            } else {
+                return null
+            }
+        } else if (e.key === 'ArrowUp') {
+            if (dataIndex === 0) {
+                setDataIndex(0)
+
+            } else {
+                setDataIndex(dataIndex - 1)
+
+            }
+        } else if (e.key === 'Enter') {
+            setTest(false)
+            setReserveValue(data[dataIndex])
+        } else return null
+
+    }
+    console.log("This is data", dataIndex)
     return (
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
@@ -86,8 +115,13 @@ const CreateNewOrder = () => {
                             <label htmlFor="lname">Area *</label>
                             <input className={styles.searchFilter} type="text" id="lname" name="lname" value={reserveValue}
                                 onClick={() => setTest(true)}
-                                onChange={(e) => setReserveValue(e.target.value)}
-
+                                onChange={(e) => {
+                                    setDataIndex(null)
+                                    setReserveValue(e.target.value)
+                                    setTest(true)
+                                }}
+                                onKeyDown={(e) => handleKeyDown(e)}
+                                autoComplete="off"
                             />
                             <div style={{ position: 'relative' }}>
                                 <PopDiv
@@ -97,11 +131,13 @@ const CreateNewOrder = () => {
 
                                 >
 
-                                    {data.map((i) => (
-                                        <div className={styles.header} key={i} value={i} onClick={() => {
-                                            setTest(false)
-                                            setReserveValue(i)
-                                        }} >
+                                    {data.map((i, index) => (
+                                        <div className={styles.header} style={{ backgroundColor: dataIndex === index ? 'red' : '' }} key={i} value={i}
+                                            onKeyDown={(e) => setDataIndex(index + 1)}
+                                            onClick={() => {
+                                                setTest(false)
+                                                setReserveValue(i)
+                                            }} >
                                             {i}
                                         </div>
                                     ))}
