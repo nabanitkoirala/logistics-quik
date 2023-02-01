@@ -5,7 +5,11 @@ import upload from '../../../assets/icons/upload.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss'
 import PopDiv from '../../../components/PopupDiv';
+import useRedirectLoggedOutUser from '../../../CustomHook/UserRedirectLoggedOutUser';
+import UpdateCsrfToken from '../../../CustomHook/UpdateCsrfToken';
 const CreateNewOrder = () => {
+    useRedirectLoggedOutUser("/")
+    UpdateCsrfToken();
     const [test, setTest] = useState(false)
     const [data, setData] = useState([
         'shyam', 'hari', 'hariram'
@@ -63,13 +67,13 @@ const CreateNewOrder = () => {
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
                 <img src={dashboardBreadCrump} alt="" />
-                <Link to="/">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Dashboard</span>
+                <Link to="/" className={styles.routeLink}>
+                    <span >Dashboard</span>
                 </Link>
 
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
-                <Link to="/orders">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Orders</span>
+                <Link to="/orders" className={styles.routeLink}>
+                    <span>Orders</span>
                 </Link>
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
                 <span>Create New Order</span>
@@ -96,22 +100,22 @@ const CreateNewOrder = () => {
                         <span>Customer Information</span>
                         <form>
                             <label htmlFor="fname">First Name *</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Last Name</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="fname">Email</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Phone *</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="lname">Alternative Phone</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                         </form >
                     </div >
                     <div className={styles.formData1}>
                         <span>Address Information</span>
                         <form>
                             <label htmlFor="fname">District *</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Area *</label>
                             <input className={styles.searchFilter} type="text" id="lname" name="lname" value={reserveValue}
                                 onClick={() => setTest(true)}
@@ -150,13 +154,13 @@ const CreateNewOrder = () => {
 
 
                             <label htmlFor="fname">Street</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Landmark</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="lname">Google Plus Code</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="lname">Full Address (Optional)</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                         </form>
 
                     </div>
@@ -164,13 +168,13 @@ const CreateNewOrder = () => {
                         <span>Package Details</span>
                         <form>
                             <label htmlFor="fname">Item Type *</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Weight</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="fname">COD Amount (0 if paid online)</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Package Instruction</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <div className={styles.selectDiv} >
 
                                 <label htmlFor="lname">Package Handle</label>

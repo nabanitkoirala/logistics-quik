@@ -14,15 +14,40 @@ import GeneralButton from '../Buttons/GeneralButton';
 import IconButton from '../Buttons/IconButton';
 import iconButtonNavbar from '../../assets/icons/iconButtonNavbar.svg';
 import locationNavbar from '../../assets/icons/locationNavbar.svg';
+import { logoutUser } from '../../Services/AuthService';
+import Cookies from 'js-cookie';
+import { CSRF_TOKEN_VALUE, SET_LOGIN } from '../../redux/feature/AuthSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCsrfToken } from '../../redux/feature/AuthSlice';
+
+
+
+
 
 const Navbar = () => {
+    const dispatch = useDispatch()
     const { pathname } = useLocation();
     const navigate = useNavigate();
-
+    const csrfToken = useSelector(selectCsrfToken)
     const [showNotification, setShowNotification] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
     console.log("This is location", location)
+    const handleLogout = async () => {
+
+
+        try {
+            const data = await logoutUser(csrfToken);
+            console.log("data", data)
+            await Cookies.remove('csrftoken');
+            await dispatch(SET_LOGIN(false));
+            await dispatch(CSRF_TOKEN_VALUE(null))
+            navigate("/");
+
+        } catch (error) {
+
+        }
+    }
     return (
         <div className={styles.mainContainer} >
 
@@ -72,7 +97,14 @@ const Navbar = () => {
                                 <div className={styles.notificationContainerFullScreen} >
                                     <div className={styles.header} >
                                         <span className={styles.notificationText} >Notification</span>
-                                        <span className={styles.markRead} >Mark all as read</span>
+                                        <span className={styles.markRead}
+                                            style={{
+                                                fontWeight: '400',
+                                                fontSize: '12px',
+                                                lineHeight: '28px',
+                                                color: '#DDE2E3',
+                                            }}
+                                        >Mark all as read</span>
                                     </div>
 
                                     <div className={styles.today} >Today</div>
@@ -192,7 +224,9 @@ const Navbar = () => {
                                     <div className={styles.header} >
                                         Account Settings
                                     </div>
-                                    <div className={styles.header} >
+                                    <div className={styles.header}
+                                        onClick={handleLogout}
+                                    >
                                         Log Out
                                     </div>
                                     <div className={styles.header} >
@@ -261,7 +295,9 @@ const Navbar = () => {
                         </Link>
 
 
-                        <div className={styles.header} >
+                        <div className={styles.header}
+                            onClick={handleLogout}
+                        >
                             <span>
 
                                 Log Out
@@ -328,7 +364,12 @@ const Navbar = () => {
                     <div className={styles.notificationContainer} >
                         <div className={styles.header} >
                             <span className={styles.notificationText} >Notification</span>
-                            <span className={styles.markRead} >Mark all as read</span>
+                            <span className={styles.markRead} style={{
+                                fontWeight: '400',
+                                fontSize: '12px',
+                                lineHeight: '28px',
+                                color: '#DDE2E3',
+                            }} >Mark all as read</span>
                         </div>
 
                         <div className={styles.today} >Today</div>

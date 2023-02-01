@@ -15,6 +15,8 @@ import IconButton from '../../components/Buttons/IconButton';
 import moreButton from '../../assets/icons/moreButton.svg';
 import PopupDiv from '../../components/PopupDiv';
 import close from '../../assets/icons/close.svg';
+import useRedirectLoggedOutUser from '../../CustomHook/UserRedirectLoggedOutUser';
+import UpdateCsrfToken from '../../CustomHook/UpdateCsrfToken';
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 function Items({ currentItems }) {
     return (
@@ -29,6 +31,8 @@ function Items({ currentItems }) {
     );
 }
 const Order = ({ itemsPerPage }) => {
+    useRedirectLoggedOutUser("/")
+    UpdateCsrfToken();
     const [clickDownloadIcon, setClickDownloadIcon] = useState(false)
     const [clickedFilter, setClickedFilter] = useState(false)
     const [orderFilterId, setOrderFilterId] = useState(1)
@@ -86,10 +90,9 @@ const Order = ({ itemsPerPage }) => {
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
                 <img src={dashboardBreadCrump} alt="" />
-                <Link to="/">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Dashboard</span>
+                <Link to="/" className={styles.routeLink}>
+                    <span>Dashboard</span>
                 </Link>
-
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
                 <span>Orders</span>
             </div>
@@ -115,7 +118,7 @@ const Order = ({ itemsPerPage }) => {
                             className={styles.clickedButton}
 
                         />
-                        <div style={{ position: 'relative' }} >
+                        <div style={{ position: 'relative' }} className={styles.popupDivMainContainer} >
                             <PopupDiv
                                 show={clickDownloadIcon}
                                 setShowInfo={setClickDownloadIcon}

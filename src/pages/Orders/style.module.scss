@@ -39,6 +39,30 @@
             font-style: normal;
             color: #0C0F1E;
         }
+
+        .routeLink {
+            text-decoration: none;
+
+            span {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     .mainTableContainer {
@@ -289,6 +313,14 @@
             .downloadButtonsGroup {
                 display: flex;
                 gap: 12px;
+
+                .popupDivMainContainer {
+                    display: none;
+
+                    @media only screen and (max-width: 600px) {
+                        display: flex;
+                    }
+                }
 
                 @media only screen and (max-width: 600px) {
                     justify-content: flex-end;

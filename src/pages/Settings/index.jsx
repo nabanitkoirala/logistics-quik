@@ -8,7 +8,11 @@ import eyeOpen from '../../assets/icons/eye.svg';
 import closeEye from '../../assets/icons/eyeClose.svg';
 import PopupDiv from '../../components/PopupDiv';
 import closeButton from '../../assets/icons/closeButton.svg';
+import useRedirectLoggedOutUser from '../../CustomHook/UserRedirectLoggedOutUser';
+import UpdateCsrfToken from '../../CustomHook/UpdateCsrfToken';
 const Setting = () => {
+    useRedirectLoggedOutUser("/")
+    UpdateCsrfToken();
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
     const [changePassword, setChangePassword] = useState(false)
@@ -44,8 +48,8 @@ const Setting = () => {
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
                 <img src={dashboardBreadCrump} alt="" />
-                <Link to="/">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Dashboard</span>
+                <Link to="/" className={styles.routeLink} >
+                    <span >Dashboard</span>
                 </Link>
 
 
@@ -71,11 +75,11 @@ const Setting = () => {
                         <span>Login Details</span>
                         <form>
                             <label htmlFor="fname">Email Address *</label>
-                            <input type="email" id="fname" name="fname" />
+                            <input type="email" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Password *</label>
                             <div style={{ position: 'relative' }}>
 
-                                <input type={showPassword ? "text" : 'password'} id="lname" name="lname" />
+                                <input type={showPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
                                 <img src={showPassword ? closeEye : eyeOpen}
 
                                     alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -84,7 +88,7 @@ const Setting = () => {
                             <label htmlFor="lname">Re-Enter Password *</label>
                             <div style={{ position: 'relative' }}>
 
-                                <input type={showPasswordConfirm ? "text" : 'password'} id="lname" name="lname" />
+                                <input type={showPasswordConfirm ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
                                 <img src={showPasswordConfirm ? closeEye : eyeOpen}
 
                                     alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -114,7 +118,7 @@ const Setting = () => {
                                                     <label htmlFor="lname">Current Password *</label>
                                                     <div style={{ position: 'relative' }}>
 
-                                                        <input type={currentPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <input type={currentPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
                                                         <img src={currentPassword ? closeEye : eyeOpen}
 
                                                             alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -123,7 +127,7 @@ const Setting = () => {
                                                     <label htmlFor="lname">New Password *</label>
                                                     <div style={{ position: 'relative' }}>
 
-                                                        <input type={newPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <input type={newPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
                                                         <img src={newPassword ? closeEye : eyeOpen}
 
                                                             alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -132,7 +136,7 @@ const Setting = () => {
                                                     <label htmlFor="lname">Re-Enter New Password *</label>
                                                     <div style={{ position: 'relative' }}>
 
-                                                        <input type={reNewPassword ? "text" : 'password'} id="lname" name="lname" />
+                                                        <input type={reNewPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
                                                         <img src={reNewPassword ? closeEye : eyeOpen}
 
                                                             alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -169,33 +173,33 @@ const Setting = () => {
                         <span>Business Information</span>
                         <form>
                             <label htmlFor="fname">Business / Personal Name</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Business / Personal Address</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Website</label>
                             <div className={styles.website} >
                                 <span>https://</span>
-                                <input type="text" id="lname" name="lname" />
+                                <input type="text" id="lname" name="lname" autoComplete="off" />
                             </div>
                             <label htmlFor="lname">Phone</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="lname">Alternative Phone Number</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
 
                         </form>
 
                     </div>
-                    <div className={styles.formData1}>
+                    <div className={styles.formData1} style={{ borderRight: 'none' }} >
                         <span>Bank Details</span>
                         <form>
                             <label htmlFor="fname">Bank Name</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Account Name</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
                             <label htmlFor="fname">Account Number</label>
-                            <input type="text" id="fname" name="fname" />
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Branch</label>
-                            <input type="text" id="lname" name="lname" />
+                            <input type="text" id="lname" name="lname" autoComplete="off" />
 
                         </form>
                     </div>

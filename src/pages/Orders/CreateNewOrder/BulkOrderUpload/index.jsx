@@ -5,7 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import dashboardBreadCrump from '../../../../assets/icons/dashboardBreadCrump.svg';
 import BulkUpload from '../../../../components/BulkUpload';
 import download from '../../../../assets/icons/downloadBright.svg';
+import useRedirectLoggedOutUser from '../../../../CustomHook/UserRedirectLoggedOutUser';
+import UpdateCsrfToken from '../../../../CustomHook/UpdateCsrfToken';
 const BulkOrder = () => {
+    useRedirectLoggedOutUser("/")
+    UpdateCsrfToken();
     const navigate = useNavigate();
     return (
         <div className={styles.mainContainer} >
@@ -16,12 +20,12 @@ const BulkOrder = () => {
                 </Link>
 
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
-                <Link to="/orders">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Orders</span>
+                <Link to="/orders" className={styles.routeLink}>
+                    <span >Orders</span>
                 </Link>
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
-                <Link to="/orders/new-order">
-                    <span style={{ color: '#667085', fontWeight: '400' }} >Create New Order</span>
+                <Link to="/orders/new-order" className={styles.routeLink}>
+                    <span>Create New Order</span>
                 </Link>
                 <span style={{ color: '#667085', fontWeight: '400' }}>/</span>
                 <span>Upload Bulk Order</span>

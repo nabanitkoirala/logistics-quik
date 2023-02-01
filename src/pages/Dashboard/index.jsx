@@ -15,6 +15,10 @@ import delivered from '../../assets/icons/delivered.svg';
 import returns from '../../assets/icons/returns.svg';
 import orderValue from '../../assets/icons/orderValue.svg';
 import GraphCard from '../../components/GraphCard';
+import useRedirectLoggedOutUser from '../../CustomHook/UserRedirectLoggedOutUser';
+import UpdateCsrfToken from '../../CustomHook/UpdateCsrfToken';
+
+
 
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 function Items({ currentItems }) {
@@ -30,6 +34,8 @@ function Items({ currentItems }) {
     );
 }
 const Dashboard = ({ itemsPerPage }) => {
+    // useRedirectLoggedOutUser("/")
+    UpdateCsrfToken();
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);

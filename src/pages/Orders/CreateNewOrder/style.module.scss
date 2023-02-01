@@ -39,6 +39,30 @@
             font-style: normal;
             color: #0C0F1E;
         }
+
+        .routeLink {
+            text-decoration: none;
+
+            span {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     .headerButtons {
@@ -448,7 +472,7 @@
 
                 input[type=text] {
                     width: 100%;
-                    padding: 12px 20px;
+                    padding: 12px 5px;
                     margin: 8px 0;
                     box-sizing: border-box;
                     background: white;
