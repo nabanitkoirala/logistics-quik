@@ -1,28 +1,44 @@
-import React from 'react'
-import { useDispatch } from "react-redux";
-import { useLocation, useNavigate, Navigate } from "react-router-dom";
-import { SET_LOGIN } from "../../redux/feature/AuthSlice";
-import { getLoginStatus } from "../../Services/AuthService";
+import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
+import Login from "../../pages/auth/Login";
 
-function Protected({ children }) {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+const Auth = (props) => {
+    const {
+        children,
+        isLoginPage = false
+    } = props;
 
-    const { pathname } = useLocation();
-    console.log("This is path name", pathname)
-    const redirectLoggedOutUser = async () => {
-        const loginStatus = await getLoginStatus();
-        const isLoggedIn = loginStatus ? true : false
-        console.log("isloged in", isLoggedIn)
-        dispatch(SET_LOGIN(isLoggedIn));
-        if (!isLoggedIn) {
-            navigate("/");
-            return;
+    const [isLoggedIn, setIsLoggedIn] = useState();
+    fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me/", {
+        credentials: 'include'
+    }).then(res => {
+        if (res.status == 200) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
         }
-        return children
-    };
-    redirectLoggedOutUser();
-    return null
-
+    })
+    if (isLoggedIn === true) {
+        return (
+            <>
+                {children}
+            </>
+        )
+    } else if (isLoggedIn === false && !isLoginPage) {
+        return (
+            <Navigate to='/' />
+        )
+    } else if (isLoggedIn === false && isLoginPage) {
+        return (
+            <Login />
+        )
+    }
+    else {
+        return (
+            <>
+            </>
+        )
+    }
 }
-export default Protected
+
+export default Auth;

@@ -17,16 +17,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import UpdateCsrfToken from "./CustomHook/UpdateCsrfToken";
-import Protected from "./CustomHook/ProtectedRoute";
+
 import BlockLoginPageWithToken from "./CustomHook/BlockLoginPageWithToken";
+import ProtectedRoute from "./CustomHook/ProtectedRoute";
 
 
 
 axios.defaults.withCredentials = true;
 function App() {
-
-  UpdateCsrfToken();
-
   return (
     <BrowserRouter>
       <Routes>
@@ -34,17 +32,21 @@ function App() {
         <Route
           path="/"
           element={
-            <Login />
+            <ProtectedRoute isLoginPage={true} >
+              <Navigate to="/dashboard" />
+            </ProtectedRoute>
           }
         />
         <Route
           path="/dashboard"
           element={
-            <Protected>
+            <ProtectedRoute>
+
               <Layout>
                 <Dashboard />
               </Layout>
-            </Protected>
+            </ProtectedRoute>
+
 
 
           }

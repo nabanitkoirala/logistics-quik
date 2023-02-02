@@ -32,12 +32,12 @@ const Navbar = () => {
     const [showNotification, setShowNotification] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
     const [showMobileMenu, setShowMobileMenu] = useState(false)
-    console.log("This is location", location)
+    console.log("This is csrfToken", csrfToken)
     const handleLogout = async () => {
 
 
         try {
-            const data = await logoutUser(csrfToken);
+            const data = await logoutUser(Cookies.get('csrftoken'));
             console.log("data", data)
             await Cookies.remove('csrftoken');
             await dispatch(SET_LOGIN(false));
