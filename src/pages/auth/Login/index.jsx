@@ -8,9 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, validateEmail } from "../../../Services/AuthService";
 import { SET_LOGIN, SET_NAME } from "../../../redux/feature/AuthSlice";
 import { selectCsrfToken } from '../../../redux/feature/AuthSlice'
-import useRedirectLoggedOutUser from "../../../CustomHook/UserRedirectLoggedOutUser";
-import UpdateCsrfToken from "../../../CustomHook/UpdateCsrfToken";
-// import Loader from "../../components/loader/Loader";
+import Cookies from "js-cookie";
+
 
 const initialState = {
     username: "",
@@ -18,8 +17,7 @@ const initialState = {
 };
 
 const Login = () => {
-    // useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const csrfToken = useSelector(selectCsrfToken);
@@ -49,7 +47,7 @@ const Login = () => {
         setIsLoading(true);
         console.log("is csrf present", csrfToken)
         try {
-            const data = await loginUser(userData, csrfToken);
+            const data = await loginUser(userData, Cookies.get('csrftoken'));
             console.log(data);
             await dispatch(SET_LOGIN(true));
             // await dispatch(SET_NAME(data.name));

@@ -13,8 +13,7 @@ import rsBlack from '../../assets/icons/rsBlack.svg';
 import down from '../../assets/icons/down.svg';
 import dropdownButton from '../../assets/icons/dropdownButton.svg';
 import Graph from '../../components/Graph';
-import useRedirectLoggedOutUser from '../../CustomHook/UserRedirectLoggedOutUser';
-import UpdateCsrfToken from '../../CustomHook/UpdateCsrfToken';
+
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 function Items({ currentItems }) {
     return (
@@ -79,8 +78,7 @@ const data = [
     },
 ]
 const Transactions = ({ itemsPerPage }) => {
-    useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const [openYearFilter, setOpenYearFilter] = useState(false)
     const [clickDownloadIcon, setClickDownloadIcon] = useState(false)
     const [clickedFilter, setClickedFilter] = useState(false)

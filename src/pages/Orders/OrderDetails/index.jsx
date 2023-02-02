@@ -33,11 +33,9 @@ import commentUser from '../../../assets/icons/commentUser.svg';
 import replyUser from '../../../assets/icons/commentReply.svg';
 import signature from '../../../assets/icons/signature.svg';
 import moreButtonSelect from '../../../assets/icons/moreButtonSelect.svg';
-import useRedirectLoggedOutUser from '../../../CustomHook/UserRedirectLoggedOutUser';
-import UpdateCsrfToken from '../../../CustomHook/UpdateCsrfToken';
+
 const OrderDetails = () => {
-    useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const [postComment, setPostComment] = useState(false)
     const [showProofDelivery, setShowProofDelivery] = useState(false)
     const [clickDownloadIcon, setClickDownloadIcon] = useState(false)

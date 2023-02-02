@@ -8,11 +8,9 @@ import eyeOpen from '../../assets/icons/eye.svg';
 import closeEye from '../../assets/icons/eyeClose.svg';
 import PopupDiv from '../../components/PopupDiv';
 import closeButton from '../../assets/icons/closeButton.svg';
-import useRedirectLoggedOutUser from '../../CustomHook/UserRedirectLoggedOutUser';
-import UpdateCsrfToken from '../../CustomHook/UpdateCsrfToken';
+
 const Setting = () => {
-    useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
     const [changePassword, setChangePassword] = useState(false)

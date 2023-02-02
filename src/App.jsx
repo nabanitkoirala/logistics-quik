@@ -8,17 +8,11 @@ import BulkOrder from "./pages/Orders/CreateNewOrder/BulkOrderUpload";
 import OrderDetails from "./pages/Orders/OrderDetails";
 import Settings from "./pages/Settings";
 import Transactions from "./pages/Transactions";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { getLoginStatus } from "./Services/AuthService";
-import { SET_LOGIN, CSRF_TOKEN_VALUE, selectIsLoggedIn } from "./redux/feature/AuthSlice";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import Cookies from "js-cookie";
-import UpdateCsrfToken from "./CustomHook/UpdateCsrfToken";
 
-import BlockLoginPageWithToken from "./CustomHook/BlockLoginPageWithToken";
+import "react-toastify/dist/ReactToastify.css";
+
+import axios from "axios";
+
 import ProtectedRoute from "./CustomHook/ProtectedRoute";
 
 
@@ -41,58 +35,72 @@ function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-
               <Layout>
                 <Dashboard />
               </Layout>
             </ProtectedRoute>
-
-
-
           }
         />
         <Route
           path="orders"
           element={
-            <Layout>
-              <Orders />
-            </Layout>
+            <ProtectedRoute>
+
+              <Layout>
+                <Orders />
+              </Layout>
+            </ProtectedRoute>
 
           }
         />
         <Route index path="orders/new-order" element={
-          <Layout>
-            <CreateNewOrder />
-          </Layout>
+          <ProtectedRoute>
+
+            <Layout>
+              <CreateNewOrder />
+            </Layout>
+          </ProtectedRoute>
 
         } />
         <Route index path="orders/bulk-upload" element={
-          <Layout>
-            <BulkOrder />
-          </Layout>
+          <ProtectedRoute>
+
+            <Layout>
+              <BulkOrder />
+            </Layout>
+          </ProtectedRoute>
 
         } />
         <Route index path="orders/:id" element={
-          <Layout>
-            <OrderDetails />
-          </Layout>
+          <ProtectedRoute>
+
+            <Layout>
+              <OrderDetails />
+            </Layout>
+          </ProtectedRoute>
 
         } />
         <Route
           path="/transaction"
           element={
-            <Layout>
-              <Transactions />
-            </Layout>
+            <ProtectedRoute>
+
+              <Layout>
+                <Transactions />
+              </Layout>
+            </ProtectedRoute>
 
           }
         />
         <Route
           path="/setting"
           element={
-            <Layout>
-              <Settings />
-            </Layout>
+            <ProtectedRoute>
+
+              <Layout>
+                <Settings />
+              </Layout>
+            </ProtectedRoute>
 
           }
         />

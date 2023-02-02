@@ -5,11 +5,10 @@ import upload from '../../../assets/icons/upload.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss'
 import PopDiv from '../../../components/PopupDiv';
-import useRedirectLoggedOutUser from '../../../CustomHook/UserRedirectLoggedOutUser';
-import UpdateCsrfToken from '../../../CustomHook/UpdateCsrfToken';
+import DropdownWithTypeFeature from '../../../components/DropdownWithTypeFeature';
+
 const CreateNewOrder = () => {
-    useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const [test, setTest] = useState(false)
     const [data, setData] = useState([
         'shyam', 'hari', 'hariram'
@@ -117,7 +116,8 @@ const CreateNewOrder = () => {
                             <label htmlFor="fname">District *</label>
                             <input type="text" id="fname" name="fname" autoComplete="off" />
                             <label htmlFor="lname">Area *</label>
-                            <input className={styles.searchFilter} type="text" id="lname" name="lname" value={reserveValue}
+                            <DropdownWithTypeFeature />
+                            {/* <input className={styles.searchFilter} type="text" id="lname" name="lname" value={reserveValue}
                                 onClick={() => setTest(true)}
                                 onChange={(e) => {
                                     setDataIndex(null)
@@ -149,7 +149,7 @@ const CreateNewOrder = () => {
 
 
                                 </PopDiv>
-                            </div>
+                            </div> */}
 
 
 

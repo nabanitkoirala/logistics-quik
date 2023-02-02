@@ -5,11 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import dashboardBreadCrump from '../../../../assets/icons/dashboardBreadCrump.svg';
 import BulkUpload from '../../../../components/BulkUpload';
 import download from '../../../../assets/icons/downloadBright.svg';
-import useRedirectLoggedOutUser from '../../../../CustomHook/UserRedirectLoggedOutUser';
-import UpdateCsrfToken from '../../../../CustomHook/UpdateCsrfToken';
+
 const BulkOrder = () => {
-    useRedirectLoggedOutUser("/")
-    UpdateCsrfToken();
+
     const navigate = useNavigate();
     return (
         <div className={styles.mainContainer} >
