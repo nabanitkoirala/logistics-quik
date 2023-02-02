@@ -60,7 +60,7 @@ const Navbar = () => {
                 </div>
                 <div className={styles.subContainer}>
                     <div className={styles.subContainerRight} >
-                        <Link to="/" className={`${styles.pageLink} ${pathname === "/" ? styles.activeRoute : ''}`}>
+                        <Link to="/dashboard" className={`${styles.pageLink} ${pathname === "/dashboard" ? styles.activeRoute : ''}`}>
 
                             Dashboard
 
