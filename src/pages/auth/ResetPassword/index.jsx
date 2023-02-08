@@ -7,27 +7,31 @@ import { loginUser, validateEmail, resetPassword } from "../../../Services/AuthS
 const ResetPassword = () => {
     const { id } = useParams();
     console.log("is this id", id)
-    const [password, setPassword] = useState({
-        new: '',
-        confirm: ''
+
+    const [pass, setPass] = useState({
+        newPass: '',
+        confirmPass: ''
     })
+
+    const { newPass, confirmPass } = pass;
     const [error, setError] = useState('')
 
     const handleChange = (e) => {
         setError('')
-        setPassword({
-            ...password,
+        setPass({
+            ...pass,
             [e.target.name]: e.target.value
         })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!password.new || !password.confirm) {
+
+        if (newPass === "" || confirmPass === "") {
             setError("All fields are required")
             return
         }
-        if (password.new !== password.confirm) {
+        if (newPass !== confirmPass) {
             setError("New and confirm password does not match")
             return
         }
@@ -35,10 +39,10 @@ const ResetPassword = () => {
         //     return toast.error("Please enter a valid email");
         // }
 
-        const password = password.confirm;
+        const password = confirmPass
 
         try {
-            const data = await resetPassword(password, id);
+            const data = await resetPassword({ password }, id);
             console.log(data);
             Cookies.set('token', data.token)
             // await dispatch(SET_LOGIN(true));
@@ -55,11 +59,11 @@ const ResetPassword = () => {
             <h2>Reset Password</h2>
             <div>
                 <h5>New Password</h5>
-                <input type="password" name="new" value={password.new} onChange={handleChange} />
+                <input type="password" name="newPass" value={newPass} onChange={handleChange} />
             </div>
             <div>
                 <h5>Confirm New Password</h5>
-                <input type="password" name="confirm" value={password.confirm} onChange={handleChange} />
+                <input type="password" name="confirmPass" value={confirmPass} onChange={handleChange} />
             </div>
 
             {error ? <h2 style={{ color: 'red' }} >{error}</h2> : ''}
