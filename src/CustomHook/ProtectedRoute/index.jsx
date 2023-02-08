@@ -30,7 +30,7 @@ const Auth = (props) => {
     // useEffect(() => {
     //     getLoginStat()
     // }, [])
-    fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me/", {
+    fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me", {
         credentials: 'include',
 
     }).then(res => {
