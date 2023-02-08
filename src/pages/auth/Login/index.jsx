@@ -23,7 +23,7 @@ const Login = () => {
     const csrfToken = useSelector(selectCsrfToken);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setformData] = useState(initialState);
-    const { username, password } = formData;
+    const { email, password } = formData;
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -32,22 +32,22 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        if (!username || !password) {
+        if (!email || !password) {
             return toast.error("All fields are required");
         }
 
-        // if (!validateEmail(email)) {
-        //     return toast.error("Please enter a valid email");
-        // }
+        if (!validateEmail(email)) {
+            return toast.error("Please enter a valid email");
+        }
 
         const userData = {
-            username,
+            email,
             password,
         };
         setIsLoading(true);
         console.log("is csrf present", csrfToken)
         try {
-            const data = await loginUser(userData, Cookies.get('csrftoken'));
+            const data = await loginUser(userData);
             console.log(data);
             await dispatch(SET_LOGIN(true));
             // await dispatch(SET_NAME(data.name));
@@ -70,10 +70,10 @@ const Login = () => {
                 <form onSubmit={login}>
                     <input
                         type="text"
-                        placeholder="Username"
+                        placeholder="Email"
                         required
-                        name="username"
-                        value={username}
+                        name="email"
+                        value={email}
                         onChange={handleInputChange}
                     />
                     <input

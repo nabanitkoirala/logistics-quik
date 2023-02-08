@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Login from "../../pages/auth/Login";
-
+import { getLoginStatus } from "../../Services/AuthService";
 const Auth = (props) => {
     const {
         children,
@@ -9,8 +9,30 @@ const Auth = (props) => {
     } = props;
 
     const [isLoggedIn, setIsLoggedIn] = useState();
+    // const getLoginStat = async () => {
+    //     console.log("Is entered")
+    //     try {
+    //         const data = await getLoginStatus();
+    //         console.log("what data", data);
+    //         if (data) {
+    //             setIsLoggedIn(true);
+    //         } else {
+    //             setIsLoggedIn(false);
+    //         }
+
+    //     } catch (error) {
+    //         console.log("what error", error)
+    //         setIsLoggedIn(false);
+    //     }
+    // }
+
+    // console.log('is logged in', isLoggedIn)
+    // useEffect(() => {
+    //     getLoginStat()
+    // }, [])
     fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me/", {
-        credentials: 'include'
+        credentials: 'include',
+
     }).then(res => {
         if (res.status == 200) {
             setIsLoggedIn(true);
