@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { loginUser, validateEmail, resetPassword } from "../../../Services/AuthService";
