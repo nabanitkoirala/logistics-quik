@@ -61,7 +61,7 @@ export const loginUser = async (userData, token) => {
 };
 
 // Logout User
-export const logoutUser = async (csrfToken) => {
+export const logoutUser = async () => {
     try {
         await axios.get(`${BACKEND_URL}/auth/logout/`);
     } catch (error) {
