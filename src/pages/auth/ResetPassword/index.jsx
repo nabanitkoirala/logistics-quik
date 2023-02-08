@@ -1,12 +1,13 @@
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { loginUser, validateEmail, resetPassword } from "../../../Services/AuthService";
 
 
 
 const ResetPassword = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     console.log("is this id", id)
 
     const [pass, setPass] = useState({
