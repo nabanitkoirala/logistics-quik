@@ -116,7 +116,12 @@ export const resetPassword = async (userData, resetToken) => {
 // Get Login Status
 export const getLoginStatus = async () => {
     try {
-        const response = await axios.get(`${BACKEND_URL}/auth/me`);
+        const response = await axios.get(`${BACKEND_URL}/auth/me`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        });
         return response.data;
     } catch (error) {
         console.log("is it error", error)
