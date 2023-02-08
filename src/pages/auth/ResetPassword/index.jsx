@@ -21,7 +21,7 @@ const ResetPassword = () => {
         })
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!password.new || !password.confirm) {
             setError("All fields are required")
