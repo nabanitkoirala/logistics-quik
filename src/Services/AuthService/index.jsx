@@ -63,11 +63,7 @@ export const loginUser = async (userData, token) => {
 // Logout User
 export const logoutUser = async (csrfToken) => {
     try {
-        await axios.get(`${BACKEND_URL}/auth/logout/`, null, {
-            headers: {
-                'X-CSRFToken': csrfToken
-            }
-        });
+        await axios.get(`${BACKEND_URL}/auth/logout/`);
     } catch (error) {
         console.log(error)
         const message =
@@ -116,12 +112,7 @@ export const resetPassword = async (userData, resetToken) => {
 // Get Login Status
 export const getLoginStatus = async () => {
     try {
-        const response = await axios.get(`${BACKEND_URL}/auth/me`, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-            },
-        });
+        const response = await axios.get(`${BACKEND_URL}/auth/me`);
         return response.data;
     } catch (error) {
         console.log("is it error", error)

@@ -37,9 +37,9 @@ const Navbar = () => {
 
 
         try {
-            const data = await logoutUser(Cookies.get('csrftoken'));
+            const data = await logoutUser();
             console.log("data", data)
-            await Cookies.remove('csrftoken');
+            await Cookies.remove('token');
             await dispatch(SET_LOGIN(false));
             await dispatch(CSRF_TOKEN_VALUE(null))
             navigate("/");
