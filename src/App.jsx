@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 import ProtectedRoute from "./CustomHook/ProtectedRoute";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 
 
@@ -39,6 +40,13 @@ function App() {
                 <Dashboard />
               </Layout>
             </ProtectedRoute>
+          }
+        />
+        resetpassword
+        <Route
+          path="/resetpassword/:id"
+          element={
+            <ResetPassword />
           }
         />
         <Route
