@@ -49,6 +49,7 @@ const Login = () => {
         try {
             const data = await loginUser(userData);
             console.log(data);
+            Cookies.set('token', data.token)
             await dispatch(SET_LOGIN(true));
             // await dispatch(SET_NAME(data.name));
             navigate("/dashboard");
