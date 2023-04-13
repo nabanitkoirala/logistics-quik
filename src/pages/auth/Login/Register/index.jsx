@@ -5,24 +5,23 @@ import styles from "./style.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loginUser, validateEmail } from "../../../Services/AuthService";
-import { SET_LOGIN, SET_NAME } from "../../../redux/feature/AuthSlice";
-import { selectCsrfToken } from '../../../redux/feature/AuthSlice'
+import { loginUser, validateEmail } from "../../../../Services/AuthService";
+import { SET_LOGIN, SET_NAME } from "../../../../redux/feature/AuthSlice";
+import { selectCsrfToken } from '../../../../redux/feature/AuthSlice'
 import Cookies from "js-cookie";
-import loginBanner from '../../../assets/icons/loginBanner.svg';
-import registerLogo from '../../../assets/icons/registerLogo.svg';
-import eyeOpen from '../../../assets/icons/eye.svg';
-import closeEye from '../../../assets/icons/eyeClose.svg';
-import BulkUploadDocument from "../../../components/BulkUploadDocument";
-import GeneralButton from '../../../components/Buttons/GeneralButton';
-import mainLogo from '../../../assets/icons/logo.svg';
-import Checkbox from "../../../components/Checkbox";
+import loginBanner from '../../../../assets/icons/loginBanner.svg';
+import registerLogo from '../../../../assets/icons/registerLogo.svg';
+import eyeOpen from '../../../../assets/icons/eye.svg';
+import closeEye from '../../../../assets/icons/eyeClose.svg';
+import BulkUploadDocument from "../../../../components/BulkUploadDocument";
+import GeneralButton from '../../../../components/Buttons/GeneralButton';
+import mainLogo from '../../../../assets/icons/logo.svg';
 const initialState = {
     username: "",
     password: "",
 };
 
-const ResetPassword = () => {
+const Login = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,7 +29,6 @@ const ResetPassword = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setformData] = useState(initialState);
     const { email, password } = formData;
-    const [checked, setChecked] = useState(false)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -101,19 +99,22 @@ const ResetPassword = () => {
 
         <>
             <div className={styles.formContainer} >
-
+                <div className={styles.mainContainer} >
+                    <img src={loginBanner} alt="" />
+                </div>
                 <div className={styles.mainFormDiv}>
                     <div className={styles.header}>
                         <img src={registerLogo} alt="" />
-                        <span>Reset Password</span>
+                        <span>Register</span>
                     </div>
                     <div className={styles.formData1} >
-
+                        <span>Login Details</span>
                         <form>
-                            <label htmlFor="fname">Registered Email*</label>
+                            <label htmlFor="fname">Business / Personal Name *</label>
                             <input type="text" id="fname" name="fname" autoComplete="off" />
-
-                            <label htmlFor="lname">New Password *</label>
+                            <label htmlFor="fname">Phone *</label>
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
+                            <label htmlFor="lname">Password *</label>
                             <div style={{ position: 'relative' }}>
 
                                 <input type={showPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
@@ -132,14 +133,20 @@ const ResetPassword = () => {
                                     onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} />
                             </div>
 
+                            <p>
+                                Passwords must be 8 characters long & must contain at least one uppercase, one number and one symbol.
+                            </p>
+                            <div className={styles.noCommentDiv} >
+                                <BulkUploadDocument />
+                            </div>
                             <div className={styles.submitButtonDiv} >
                                 <GeneralButton
                                     title="Cancel"
-                                    className={styles.cancelButton}
+
 
                                 />
                                 <GeneralButton
-                                    title="Reset Password"
+                                    title="Register"
                                     className={styles.orderButton}
 
                                     onClick={() => navigate('/orders/new-order')}
@@ -155,4 +162,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default Login;

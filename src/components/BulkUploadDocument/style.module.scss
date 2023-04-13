@@ -1,0 +1,135 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 8px;
+}
+
+.dropzone {
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    padding: 20px;
+    border-width: 2px;
+    border-radius: 2px;
+    // border-color: #eeeeee;
+    // border-style: dashed;
+    background-color: #fafafa;
+    color: #bdbdbd;
+    outline: none;
+    transition: border .24s ease-in-out;
+}
+
+.imageContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 60px;
+    height: 60px;
+    background: rgba(76, 87, 117, 0.1);
+    border-radius: 130px;
+    flex: none;
+    flex-grow: 0;
+}
+
+.dropZoneText {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #5D6B98;
+    padding-top: 8px;
+    text-align: left;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px !important;
+        /* identical to box height, or 18px */
+
+
+
+        /* Muted Text */
+
+        color: #667085;
+
+        a {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 150%;
+            /* identical to box height, or 18px */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-decoration-line: underline !important;
+
+            /* Text */
+
+            color: #0C0F1E !important;
+        }
+    }
+
+}
+
+.filesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    height: 44px;
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.thumbnailContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.text {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #5D6B98;
+    width: 100%;
+    padding-top: 8px;
+    text-align: start;
+}

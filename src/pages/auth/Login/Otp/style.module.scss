@@ -170,11 +170,11 @@
     justify-content: center;
     margin-top: 60px;
     align-items: center;
-    height: 600px;
+
 
 
     .mainFormDiv {
-        padding: 12px 24px;
+
         height: 100%;
 
 
@@ -188,16 +188,101 @@
         border-radius: 8px;
 
         .formData1 {
+            padding: 12px 24px !important;
+
+            .didntGetCode {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+
+            .checkMailText2 {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+
+            .checkMailText {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 150%;
+                /* identical to box height, or 21px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Text */
+
+                color: #0C0F1E;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 0;
+                flex-grow: 0;
+            }
+
+            .otpField {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+
+                input {
+                    height: 40px;
+                    width: 40px !important;
+                }
+            }
+
             .submitButtonDiv {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: center;
                 margin-top: 20px;
                 gap: 12px;
             }
 
             .orderButton {
-                height: 32px;
+                height: 36px;
                 // width: 138px;
                 background: #00CC66;
                 /* Stroke for buttons */
@@ -640,6 +725,8 @@
         .header {
             display: flex;
             gap: 8px;
+            border-bottom: 1px solid #EAECF0;
+            padding: 12px 24px;
 
             span {
                 width: 304px;

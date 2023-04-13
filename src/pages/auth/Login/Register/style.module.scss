@@ -94,76 +94,6 @@
 // }
 
 
-.navbarMainContainer {
-    height: 56px;
-    background-color: #03373E;
-    color: #F2F4F7;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 110px;
-
-    .logo {
-        @media only screen and (max-width: 600px) {
-            display: flex;
-            gap: 8px;
-        }
-
-    }
-
-    .submitButtonDiv {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        gap: 12px;
-
-        .register {
-            background: none;
-
-            span {
-                color: white;
-            }
-
-        }
-
-        .orderButton {
-            height: 32px;
-            // width: 138px;
-            background: #00CC66;
-            /* Stroke for buttons */
-
-
-            border-radius: 130px;
-            padding: 8px 12px;
-            white-space: nowrap;
-
-            img {
-                height: 20px;
-                width: 20px;
-            }
-
-            span {
-                color: #FFFFFF;
-                font-weight: 500;
-            }
-
-            @media only screen and (max-width: 600px) {
-                height: 36px;
-                width: 112px;
-            }
-
-            &:hover {
-                background: #055A65;
-            }
-
-            &:active {
-                background: #03373E;
-            }
-        }
-
-    }
-}
 
 .formContainer {
     display: flex;
@@ -174,7 +104,7 @@
 
 
     .mainFormDiv {
-        padding: 12px 24px;
+
         height: 100%;
 
 
@@ -188,6 +118,8 @@
         border-radius: 8px;
 
         .formData1 {
+            padding: 12px 24px !important;
+
             .submitButtonDiv {
                 display: flex;
                 align-items: center;
@@ -640,6 +572,8 @@
         .header {
             display: flex;
             gap: 8px;
+            border-bottom: 1px solid #EAECF0;
+            padding: 12px 24px;
 
             span {
                 width: 304px;

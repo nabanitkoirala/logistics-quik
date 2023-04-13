@@ -5,24 +5,23 @@ import styles from "./style.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loginUser, validateEmail } from "../../../Services/AuthService";
-import { SET_LOGIN, SET_NAME } from "../../../redux/feature/AuthSlice";
-import { selectCsrfToken } from '../../../redux/feature/AuthSlice'
+import { loginUser, validateEmail } from "../../../../Services/AuthService";
+import { SET_LOGIN, SET_NAME } from "../../../../redux/feature/AuthSlice";
+import { selectCsrfToken } from '../../../../redux/feature/AuthSlice'
 import Cookies from "js-cookie";
-import loginBanner from '../../../assets/icons/loginBanner.svg';
-import registerLogo from '../../../assets/icons/registerLogo.svg';
-import eyeOpen from '../../../assets/icons/eye.svg';
-import closeEye from '../../../assets/icons/eyeClose.svg';
-import BulkUploadDocument from "../../../components/BulkUploadDocument";
-import GeneralButton from '../../../components/Buttons/GeneralButton';
-import mainLogo from '../../../assets/icons/logo.svg';
-import Checkbox from "../../../components/Checkbox";
+import loginBanner from '../../../../assets/icons/loginBanner.svg';
+import registerLogo from '../../../../assets/icons/registerLogo.svg';
+import eyeOpen from '../../../../assets/icons/eye.svg';
+import closeEye from '../../../../assets/icons/eyeClose.svg';
+import BulkUploadDocument from "../../../../components/BulkUploadDocument";
+import GeneralButton from '../../../../components/Buttons/GeneralButton';
+import mainLogo from '../../../../assets/icons/logo.svg';
 const initialState = {
     username: "",
     password: "",
 };
 
-const ResetPassword = () => {
+const Otp = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,7 +29,6 @@ const ResetPassword = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setformData] = useState(initialState);
     const { email, password } = formData;
-    const [checked, setChecked] = useState(false)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -100,46 +98,38 @@ const ResetPassword = () => {
     return (
 
         <>
+
             <div className={styles.formContainer} >
 
                 <div className={styles.mainFormDiv}>
                     <div className={styles.header}>
                         <img src={registerLogo} alt="" />
-                        <span>Reset Password</span>
+                        <span>Register</span>
                     </div>
                     <div className={styles.formData1} >
-
-                        <form>
-                            <label htmlFor="fname">Registered Email*</label>
-                            <input type="text" id="fname" name="fname" autoComplete="off" />
-
-                            <label htmlFor="lname">New Password *</label>
-                            <div style={{ position: 'relative' }}>
-
-                                <input type={showPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
-                                <img src={showPassword ? closeEye : eyeOpen}
-
-                                    alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
-                                    onClick={() => setShowPassword(!showPassword)} />
+                        <span className={styles.checkMailText} style={{ display: 'flex', justifyContent: 'center' }} >Please check your email</span>
+                        <span className={styles.checkMailText2} style={{ display: 'flex', justifyContent: 'center' }} >We’ve sent a code to hello@email.com</span>
+                        <form  >
+                            <div className={styles.otpField}>
+                                <input type="text" id="fname" name="fname" autoComplete="off" style={{ fontSize: '24px', paddingLeft: '10px' }} />
+                                <input type="text" id="f3name" name="fname" autoComplete="off" style={{ fontSize: '24px', paddingLeft: '10px' }} />
+                                <input type="text" id="f2name" name="fname" autoComplete="off" style={{ fontSize: '24px', paddingLeft: '10px' }} />
+                                <input type="text" id="f3name" name="fname" autoComplete="off" style={{ fontSize: '24px', paddingLeft: '10px' }} />
                             </div>
-                            <label htmlFor="lname">Re-Enter Password *</label>
-                            <div style={{ position: 'relative' }}>
 
-                                <input type={showPasswordConfirm ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
-                                <img src={showPasswordConfirm ? closeEye : eyeOpen}
 
-                                    alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
-                                    onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} />
-                            </div>
+                            <p className={styles.didntGetCode} style={{ display: 'flex', justifyContent: 'center' }} >
+                                Didn’t get code?<span> <a href="#" style={{ color: '#667085' }} > Click to resend</a></span>
+                            </p>
 
                             <div className={styles.submitButtonDiv} >
                                 <GeneralButton
                                     title="Cancel"
-                                    className={styles.cancelButton}
+
 
                                 />
                                 <GeneralButton
-                                    title="Reset Password"
+                                    title="Verify"
                                     className={styles.orderButton}
 
                                     onClick={() => navigate('/orders/new-order')}
@@ -155,4 +145,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default Otp;

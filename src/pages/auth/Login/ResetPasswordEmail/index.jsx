@@ -5,29 +5,24 @@ import styles from "./style.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loginUser, validateEmail } from "../../../Services/AuthService";
-import { SET_LOGIN, SET_NAME } from "../../../redux/feature/AuthSlice";
-import { selectCsrfToken } from '../../../redux/feature/AuthSlice'
+import { loginUser, validateEmail } from "../../../../Services/AuthService";
+import { SET_LOGIN, SET_NAME } from "../../../../redux/feature/AuthSlice";
+import { selectCsrfToken } from '../../../../redux/feature/AuthSlice'
 import Cookies from "js-cookie";
-import loginBanner from '../../../assets/icons/loginBanner.svg';
-import registerLogo from '../../../assets/icons/registerLogo.svg';
-import eyeOpen from '../../../assets/icons/eye.svg';
-import closeEye from '../../../assets/icons/eyeClose.svg';
-import BulkUploadDocument from "../../../components/BulkUploadDocument";
-import GeneralButton from '../../../components/Buttons/GeneralButton';
-import mainLogo from '../../../assets/icons/logo.svg';
-import Register from '../Login/Register';
-import Otp from "./Otp";
-import LogingIn from "./Logingin";
-import ResetPasswordEmail from "./ResetPasswordEmail";
-import ResetPassword from "../ResetPassword";
-import PasswordSuccess from "./PasswordSuccessMessage";
+import loginBanner from '../../../../assets/icons/loginBanner.svg';
+import registerLogo from '../../../../assets/icons/registerLogo.svg';
+import eyeOpen from '../../../../assets/icons/eye.svg';
+import closeEye from '../../../../assets/icons/eyeClose.svg';
+import BulkUploadDocument from "../../../../components/BulkUploadDocument";
+import GeneralButton from '../../../../components/Buttons/GeneralButton';
+import mainLogo from '../../../../assets/icons/logo.svg';
+import Checkbox from "../../../../components/Checkbox";
 const initialState = {
     username: "",
     password: "",
 };
 
-const Login = () => {
+const ResetPasswordEmail = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -35,6 +30,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setformData] = useState(initialState);
     const { email, password } = formData;
+    const [checked, setChecked] = useState(false)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -104,34 +100,39 @@ const Login = () => {
     return (
 
         <>
-            <div className={styles.navbarMainContainer} >
-                <div className={styles.logo} >
-                    <img src={mainLogo} alt="" />
+            <div className={styles.formContainer} >
+
+                <div className={styles.mainFormDiv}>
+                    <div className={styles.header}>
+                        <img src={registerLogo} alt="" />
+                        <span>Reset Password</span>
+                    </div>
+                    <div className={styles.formData1} >
+
+                        <form>
+                            <label htmlFor="fname">Email Registered Email *</label>
+                            <input type="text" id="fname" name="fname" autoComplete="off" />
+                            <div className={styles.submitButtonDiv} >
+                                <GeneralButton
+                                    title="Cancel"
+                                    className={styles.cancelButton}
+
+                                />
+                                <GeneralButton
+                                    title="Reset Password"
+                                    className={styles.orderButton}
+
+                                    onClick={() => navigate('/orders/new-order')}
+                                />
+                            </div>
+                        </form >
+                    </div >
 
                 </div>
-                <div className={styles.submitButtonDiv} >
 
-                    <GeneralButton
-                        title="Register"
-                        className={styles.register}
-
-                    />
-                    <GeneralButton
-                        title="Login"
-                        className={styles.orderButton}
-
-                        onClick={() => navigate('/orders/new-order')}
-                    />
-                </div>
             </div>
-            <Register />
-            {/* <Otp /> */}
-            {/* <LogingIn /> */}
-            {/* <ResetPasswordEmail /> */}
-            {/* <ResetPassword /> */}
-            {/* <PasswordSuccess /> */}
         </>
     );
 };
 
-export default Login;
+export default ResetPasswordEmail;

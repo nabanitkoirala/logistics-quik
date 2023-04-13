@@ -15,6 +15,7 @@ import axios from "axios";
 
 import ProtectedRoute from "./CustomHook/ProtectedRoute";
 import ResetPassword from "./pages/auth/ResetPassword";
+import Otp from "./pages/auth/Login/Otp";
 
 
 
@@ -27,11 +28,25 @@ function App() {
         <Route
           path="/"
           element={
+
+
+            <Login />
+
+
+          }
+        />
+
+
+
+
+        {/* <Route
+          path="/"
+          element={
             <ProtectedRoute isLoginPage={true} >
               <Navigate to="/dashboard" />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/dashboard"
           element={

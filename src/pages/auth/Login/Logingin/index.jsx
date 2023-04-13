@@ -5,24 +5,24 @@ import styles from "./style.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loginUser, validateEmail } from "../../../Services/AuthService";
-import { SET_LOGIN, SET_NAME } from "../../../redux/feature/AuthSlice";
-import { selectCsrfToken } from '../../../redux/feature/AuthSlice'
+import { loginUser, validateEmail } from "../../../../Services/AuthService";
+import { SET_LOGIN, SET_NAME } from "../../../../redux/feature/AuthSlice";
+import { selectCsrfToken } from '../../../../redux/feature/AuthSlice'
 import Cookies from "js-cookie";
-import loginBanner from '../../../assets/icons/loginBanner.svg';
-import registerLogo from '../../../assets/icons/registerLogo.svg';
-import eyeOpen from '../../../assets/icons/eye.svg';
-import closeEye from '../../../assets/icons/eyeClose.svg';
-import BulkUploadDocument from "../../../components/BulkUploadDocument";
-import GeneralButton from '../../../components/Buttons/GeneralButton';
-import mainLogo from '../../../assets/icons/logo.svg';
-import Checkbox from "../../../components/Checkbox";
+import loginBanner from '../../../../assets/icons/loginBanner.svg';
+import registerLogo from '../../../../assets/icons/registerLogo.svg';
+import eyeOpen from '../../../../assets/icons/eye.svg';
+import closeEye from '../../../../assets/icons/eyeClose.svg';
+import BulkUploadDocument from "../../../../components/BulkUploadDocument";
+import GeneralButton from '../../../../components/Buttons/GeneralButton';
+import mainLogo from '../../../../assets/icons/logo.svg';
+import Checkbox from "../../../../components/Checkbox";
 const initialState = {
     username: "",
     password: "",
 };
 
-const ResetPassword = () => {
+const LogingIn = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -105,15 +105,15 @@ const ResetPassword = () => {
                 <div className={styles.mainFormDiv}>
                     <div className={styles.header}>
                         <img src={registerLogo} alt="" />
-                        <span>Reset Password</span>
+                        <span>Login</span>
                     </div>
                     <div className={styles.formData1} >
-
+                        <span>Login Details</span>
                         <form>
-                            <label htmlFor="fname">Registered Email*</label>
+                            <label htmlFor="fname">Email Address/phone *</label>
                             <input type="text" id="fname" name="fname" autoComplete="off" />
 
-                            <label htmlFor="lname">New Password *</label>
+                            <label htmlFor="lname">Password *</label>
                             <div style={{ position: 'relative' }}>
 
                                 <input type={showPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
@@ -122,14 +122,26 @@ const ResetPassword = () => {
                                     alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
                                     onClick={() => setShowPassword(!showPassword)} />
                             </div>
-                            <label htmlFor="lname">Re-Enter Password *</label>
-                            <div style={{ position: 'relative' }}>
+                            <div className={styles.mainDivForgetPassword} >
+                                <div className={styles.checkboxDiv} >
+                                    <Checkbox checked={checked}
+                                        handleChange={() => {
 
-                                <input type={showPasswordConfirm ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
-                                <img src={showPasswordConfirm ? closeEye : eyeOpen}
 
-                                    alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
-                                    onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} />
+                                            if (checked) {
+                                                setChecked(false)
+
+                                            } else {
+                                                setChecked(true)
+
+                                            }
+                                        }}
+                                    />
+                                    <span>Remember me</span>
+                                </div>
+                                <div className={styles.forgetPassword} >
+                                    <Link to="/">Forgot passsword</Link>
+                                </div>
                             </div>
 
                             <div className={styles.submitButtonDiv} >
@@ -139,7 +151,7 @@ const ResetPassword = () => {
 
                                 />
                                 <GeneralButton
-                                    title="Reset Password"
+                                    title="Login"
                                     className={styles.orderButton}
 
                                     onClick={() => navigate('/orders/new-order')}
@@ -155,4 +167,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default LogingIn;

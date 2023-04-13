@@ -94,87 +94,17 @@
 // }
 
 
-.navbarMainContainer {
-    height: 56px;
-    background-color: #03373E;
-    color: #F2F4F7;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 110px;
-
-    .logo {
-        @media only screen and (max-width: 600px) {
-            display: flex;
-            gap: 8px;
-        }
-
-    }
-
-    .submitButtonDiv {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        gap: 12px;
-
-        .register {
-            background: none;
-
-            span {
-                color: white;
-            }
-
-        }
-
-        .orderButton {
-            height: 32px;
-            // width: 138px;
-            background: #00CC66;
-            /* Stroke for buttons */
-
-
-            border-radius: 130px;
-            padding: 8px 12px;
-            white-space: nowrap;
-
-            img {
-                height: 20px;
-                width: 20px;
-            }
-
-            span {
-                color: #FFFFFF;
-                font-weight: 500;
-            }
-
-            @media only screen and (max-width: 600px) {
-                height: 36px;
-                width: 112px;
-            }
-
-            &:hover {
-                background: #055A65;
-            }
-
-            &:active {
-                background: #03373E;
-            }
-        }
-
-    }
-}
 
 .formContainer {
     display: flex;
     justify-content: center;
     margin-top: 60px;
     align-items: center;
-    height: 600px;
+
 
 
     .mainFormDiv {
-        padding: 12px 24px;
+
         height: 100%;
 
 
@@ -188,16 +118,109 @@
         border-radius: 8px;
 
         .formData1 {
+            padding: 12px 24px !important;
+
+            .badge {
+                display: flex;
+                justify-content: center;
+            }
+
+            .didntGetCode {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+
+            .checkMailText2 {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 150%;
+                /* identical to box height, or 18px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Muted Text */
+
+                color: #667085;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+
+            .checkMailText {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 150%;
+                /* or 21px */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                /* Dark Green/Daark */
+
+                color: #03373E;
+
+
+                /* Inside auto layout */
+
+                flex: none;
+                order: 1;
+                flex-grow: 0;
+            }
+
+            .otpField {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+
+                input {
+                    height: 40px;
+                    width: 40px !important;
+                }
+            }
+
             .submitButtonDiv {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: center;
                 margin-top: 20px;
                 gap: 12px;
             }
 
             .orderButton {
-                height: 32px;
+                width: 134px;
+                display: flex;
+                justify-content: center;
+                height: 36px;
                 // width: 138px;
                 background: #00CC66;
                 /* Stroke for buttons */
@@ -640,6 +663,8 @@
         .header {
             display: flex;
             gap: 8px;
+            border-bottom: 1px solid #EAECF0;
+            padding: 12px 24px;
 
             span {
                 width: 304px;
