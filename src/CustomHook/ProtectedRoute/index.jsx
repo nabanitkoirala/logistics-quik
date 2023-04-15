@@ -9,37 +9,25 @@ const Auth = (props) => {
     } = props;
 
     const [isLoggedIn, setIsLoggedIn] = useState();
-    // const getLoginStat = async () => {
-    //     console.log("Is entered")
-    //     try {
-    //         const data = await getLoginStatus();
-    //         console.log("what data", data);
-    //         if (data) {
-    //             setIsLoggedIn(true);
-    //         } else {
-    //             setIsLoggedIn(false);
-    //         }
 
-    //     } catch (error) {
-    //         console.log("what error", error)
+    const test = async () => {
+        const data = await localStorage.getItem('accessToken')
+        data ? setIsLoggedIn(true) : setIsLoggedIn(false)
+        return
+    }
+    useEffect(() => {
+        test()
+    }, [])
+    // fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me", {
+    //     credentials: 'include',
+
+    // }).then(res => {
+    //     if (res.status == 200) {
+    //         setIsLoggedIn(true);
+    //     } else {
     //         setIsLoggedIn(false);
     //     }
-    // }
-
-    // console.log('is logged in', isLoggedIn)
-    // useEffect(() => {
-    //     getLoginStat()
-    // }, [])
-    fetch(import.meta.env.VITE_APP_BACKEND_URL + "/auth/me", {
-        credentials: 'include',
-
-    }).then(res => {
-        if (res.status == 200) {
-            setIsLoggedIn(true);
-        } else {
-            setIsLoggedIn(false);
-        }
-    })
+    // })
     if (isLoggedIn === true) {
         return (
             <>

@@ -124,9 +124,9 @@ const Login = () => {
                     />
                 </div>
             </div>
-            <Register />
+            {/* <Register /> */}
             {/* <Otp /> */}
-            {/* <LogingIn /> */}
+            <LogingIn />
             {/* <ResetPasswordEmail /> */}
             {/* <ResetPassword /> */}
             {/* <PasswordSuccess /> */}

@@ -32,14 +32,16 @@ export const registerUser = async (userData) => {
     }
 };
 
+
 // Login User
 export const loginUser = async (userData, token) => {
 
-    console.log("THis is user")
+
     try {
         const response = await axios.post(
-            `${BACKEND_URL}/auth/login/`,
+            `${BACKEND_URL}/auth/login`,
             userData,
+
             {
                 // headers: {
                 //     'X-CSRFToken': token
@@ -47,31 +49,22 @@ export const loginUser = async (userData, token) => {
             }
         );
         if (response.statusText === "OK") {
-            toast.success("Login Successful...");
+            // toast.success("Login Successful...");
+            console.log("Login successful")
         }
-        return response.data;
+        return localStorage.setItem("accessToken", JSON.stringify(response.data));;
     } catch (error) {
         const message =
             (error.response && error.response.data && error.response.data.message) ||
             error.message ||
             error.toString();
-        toast.error(message);
+        // toast.error(message);
     }
 
 };
 
-// Logout User
-export const logoutUser = async () => {
-    try {
-        await axios.get(`${BACKEND_URL}/auth/logout/`);
-    } catch (error) {
-        console.log(error)
-        const message =
-            (error.response && error.response.data && error.response.data.message) ||
-            error.message ||
-            error.toString();
-        toast.error(message);
-    }
+export const logout = () => {
+    localStorage.removeItem("accessToken");
 };
 
 // Forgot Password

@@ -4,44 +4,44 @@ import orderDays from '../../assets/icons/orderDays.svg';
 import Graph from '../Graph'
 
 
-const data = [
-    {
-        day: 'S',
-        value: 5000
-    },
-    {
-        day: 'M',
-        value: 2000
-    },
-    {
-        day: 'T',
-        value: 1200
-    }, {
-        day: 'W',
-        value: 8000
-    },
-    {
-        day: 'T',
-        value: 800
-    },
-    {
-        day: 'F',
-        value: 1300
-    },
-    {
-        day: 'S',
-        value: 1800
-    },
+// const data = [
+//     {
+//         day: 'S',
+//         value: 5000
+//     },
+//     {
+//         day: 'M',
+//         value: 2000
+//     },
+//     {
+//         day: 'T',
+//         value: 1200
+//     }, {
+//         day: 'W',
+//         value: 8000
+//     },
+//     {
+//         day: 'T',
+//         value: 800
+//     },
+//     {
+//         day: 'F',
+//         value: 1300
+//     },
+//     {
+//         day: 'S',
+//         value: 1800
+//     },
 
 
-]
-const GraphCard = () => {
+// ]
+const GraphCard = ({ data, weekOrder }) => {
     return (
         <div className={styles.graphCard}>
             <div className={styles.graphCardDetails} >
                 <span>Orders in <br />Last 7 Days</span>
                 <div className={styles.count} >
-                    <span>60</span>
+                    <span>{weekOrder}</span>
                     <img src={orderDays} alt="" />
                 </div>
             </div>

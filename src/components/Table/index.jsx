@@ -6,10 +6,11 @@ import printer from '../../assets/icons/printer.svg';
 import trash from '../../assets/icons/trash.svg';
 import { useNavigate } from 'react-router-dom';
 
-const TableComponent = () => {
+const TableComponent = ({ header, data }) => {
     const navigate = useNavigate();
     const [checked, setChecked] = useState(false)
     const [selectedRow, setSelectedRow] = useState(null)
+    console.log("This header", header)
     return (
         <table className={styles.tableWithData} >
             <thead>
@@ -25,20 +26,84 @@ const TableComponent = () => {
                             setSelectedRow('all')
                         }
                     }} /></th>
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>Receiver Name</th>
-                    <th>District</th>
-                    <th>Area</th>
-                    <th>Phone</th>
-                    <th>COD Amount</th>
-                    <th>Delivery Charge</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    {
+                        header.map((item) => (<th key={item}>{item.name}</th>))
+                    }
+
                 </tr>
             </thead>
             <tbody>
-                <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}
+                {
+                    data && data.data.map((item) => (
+
+                        <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}
+                            onClick={() => navigate('/orders/123658')}
+
+                        >
+                            <td><Checkbox checked={checked} handleChange={() => {
+                                setSelectedRow(1)
+                                setChecked(!checked)
+                            }} /></td>
+                            {
+                                header.map((data) => (
+                                    data.value === 'deliveryStatus' ?
+
+                                        <td>
+                                            <div style={{
+                                                color: '#7063EC',
+                                                fontWeight: '400', fontSize: '12px',
+                                                lineHeight: '150%', display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center', width: '86px',
+                                                height: '22px', backgroundColor: '#F1EFFD',
+                                                borderRadius: '15px', padding: '2px 12px'
+                                            }} >
+                                                {item[data.value]}
+                                            </div>
+                                        </td> : data.value === "" ?
+                                            <td>
+                                                <div className={styles.actionButtons} >
+                                                    <img src={printer} alt="" height={16} width={16} />
+                                                    <img src={edit} alt="" height={16} width={16} />
+                                                    <img src={trash} alt="" height={16} width={16} />
+                                                </div>
+                                            </td> :
+                                            <td> {item[data.value]}</td>
+
+
+
+                                ))
+                            }
+
+                            {/* <td>79301</td>
+                            <td>Apr 25,2019 8:49</td>
+                            <td>Arun Kumar Mandal</td>
+                            <td>Morang</td>
+                            <td>Biratnagar</td>
+                            <td>9842084839</td>
+                            <td>2350</td>
+                            <td>100</td>
+                            <td>
+                                <div style={{
+                                    color: '#7063EC',
+                                    fontWeight: '400', fontSize: '12px',
+                                    lineHeight: '150%', display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center', width: '86px',
+                                    height: '22px', backgroundColor: '#F1EFFD',
+                                    borderRadius: '15px', padding: '2px 12px'
+                                }} >
+                                    New Order
+                                </div>
+                            </td>
+                           
+                            
+                            */}
+                        </tr>
+
+                    ))
+                }
+                {/* <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}
                     onClick={() => navigate('/orders/123658')}
 
                 >
@@ -285,7 +350,7 @@ const TableComponent = () => {
                             <img src={trash} alt="" height={16} width={16} />
                         </div>
                     </td>
-                </tr>
+                </tr> */}
             </tbody>
         </table >
     )

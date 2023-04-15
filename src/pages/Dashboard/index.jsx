@@ -5,7 +5,7 @@ import setting from '../../assets/icons/setting.svg';
 import transaction from '../../assets/icons/transaction.svg';
 import TableComponent from '../../components/Table';
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GeneralButton from '../../components/Buttons/GeneralButton';
 import IconButton from '../../components/Buttons/IconButton';
 import Card from '../../components/Card';
@@ -15,7 +15,7 @@ import delivered from '../../assets/icons/delivered.svg';
 import returns from '../../assets/icons/returns.svg';
 import orderValue from '../../assets/icons/orderValue.svg';
 import GraphCard from '../../components/GraphCard';
-
+import httpBrowsing from '../../Services/httpBrowsing';
 
 
 
@@ -33,7 +33,8 @@ function Items({ currentItems }) {
     );
 }
 const Dashboard = ({ itemsPerPage }) => {
-
+    const [cardData, setCardData] = useState()
+    const [orderData, setOrderData] = useState()
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
@@ -47,6 +48,88 @@ const Dashboard = ({ itemsPerPage }) => {
         );
         setItemOffset(newOffset);
     };
+
+    useEffect(() => {
+
+
+        httpBrowsing.get('/order/homepage-count')
+            .then((res) => {
+                setCardData(res.data.data.data)
+                console.log("This is response", res.data)
+            })
+            .catch(err => console.log("This is error", err))
+        httpBrowsing.get('/order')
+            .then((res) => {
+                setOrderData(res.data.data.data)
+                console.log("This is response2", res.data)
+            })
+            .catch(err => console.log("This is error", err))
+    }, [])
+
+    console.log("This is card data", cardData)
+    console.log("This is card data1", orderData)
+    const totalOrder = cardData && cardData.ALL && cardData.ALL.length ? cardData.ALL[0].count : '-'
+    const newOrder = cardData && cardData['New Order'] && cardData['New Order'].length ? cardData['New Order'][0].count : '-'
+    const totalDelivered = cardData && cardData.Delivered && cardData.Delivered.length ? cardData.Delivered[0].count : '-'
+    const inProgress = cardData && cardData.Processing && cardData.Processing.length ? cardData.Processing[0].count : '-'
+    const totalReturns = cardData && cardData.Returns && cardData.Returns.length ? cardData.Returns[0].count : '-'
+    const totalOrderedvalue = cardData && cardData.TOTAL_ORDER_VALUE && cardData.TOTAL_ORDER_VALUE.length ? cardData.TOTAL_ORDER_VALUE[0].TotalOrderValue : '-'
+    const today = cardData && cardData.ORDER_VALUE_PER_DAY && cardData.ORDER_VALUE_PER_DAY.length ? cardData.ORDER_VALUE_PER_DAY[0].PerDayOrderValue : '-'
+    const weekOrder = cardData && cardData.ORDER_VALUE_PER_WEEK ? cardData.ORDER_VALUE_PER_WEEK.orders : '-'
+    const week = [{ name: 'Sunday', value: 'S' },
+    { name: 'Monday', value: 'M' },
+    {
+        name: 'Tuesday',
+        value: 'T'
+    },
+    {
+        name: 'Wednesday',
+        value: 'W'
+    },
+    {
+        name: 'Thursday',
+        value: 'T'
+    },
+    {
+        name: 'Friday',
+        value: 'F'
+    },
+    {
+        name: 'Saturday',
+        value: 'S'
+    }
+    ]
+    const graphData = cardData && cardData.GRAPH_COUNT && cardData.GRAPH_COUNT.length
+        ? cardData.GRAPH_COUNT : []
+    const finalGraphData = graphData && graphData.length ? week.map((item) => {
+        // return({
+        //     day:item.value,
+        //     value:graphData
+        // })
+        // const receivedData = graphData.map((data) => {
+        //     return ({
+        //         day: item.value,
+        //         value: data.day === item.value ? data.orderValue : 0
+        //     })
+        // })
+        const receivedData = graphData.filter((data) => data.day === item.name).length ? graphData.filter((data) => data.day === item.name)[0].orderValue : 0
+        return ({
+            day: item.value,
+            value: receivedData
+        })
+
+    }) : []
+
+    const tableHeader = [{ name: 'Order ID', value: 'orderId' }, { name: 'Date', value: 'createdAt' },
+    { name: 'Receiver Name', value: 'customerFirstName' }, { name: 'District', value: 'district' },
+    { name: 'Area', value: 'area' }, { name: 'Phone', value: 'customerPhoneNumber' }, { name: 'COD Amount', value: 'cod' },
+    { name: 'Delivery Charge', value: 'codCharge' }, { name: 'Status', value: 'deliveryStatus' }, { name: 'Actions', value: '' }]
+    const finalOrderData = orderData && orderData.data.map((item) => {
+        const data = tableHeader.map((data) => ({ ...data, [data.value]: item[data.value] }))
+        return (data)
+    })
+    console.log("Output", finalOrderData)
+    console.log("This is week order", orderData)
     return (
         <div className={styles.mainContainer} >
             <div className={styles.breadCrump} >
@@ -85,35 +168,38 @@ const Dashboard = ({ itemsPerPage }) => {
                     title="Total Orders"
                     imgSource={order}
                     footerText="New Orders"
-                    value={230}
-                    footerValue={12}
+                    value={totalOrder}
+                    footerValue={newOrder}
                     titleTextFieldWidth={65}
                 />
                 <Card
                     title="Total Delivered"
                     imgSource={delivered}
-                    footerText="New Orders"
-                    value={230}
-                    footerValue={12}
+                    footerText="In Process"
+                    value={totalDelivered}
+                    footerValue={inProgress}
                     titleTextFieldWidth={65}
                 />
                 <Card
                     title="Total Returns"
                     imgSource={returns}
-                    footerText="New Orders"
-                    value={230}
+                    footerText="In Process"
+                    value={totalReturns}
                     footerValue={12}
                     titleTextFieldWidth={65}
                 />
                 <Card
                     title="Total Ordered Value"
                     imgSource={orderValue}
-                    footerText="New Orders"
-                    value={230}
-                    footerValue={12}
+                    footerText="Today"
+                    value={totalOrderedvalue}
+                    footerValue={today}
                     titleTextFieldWidth={80}
                 />
-                <GraphCard />
+                <GraphCard
+                    data={finalGraphData}
+                    weekOrder={weekOrder}
+                />
             </div>
             <div className={styles.mainTableContainer}>
                 <div className={styles.tableContainer} >
@@ -135,7 +221,10 @@ const Dashboard = ({ itemsPerPage }) => {
                     <span>Your most recent orders appear here</span>
                 </div>
                 <div className={styles.dataTable} >
-                    <TableComponent />
+                    <TableComponent
+                        header={tableHeader}
+                        data={orderData}
+                    />
                 </div>
                 <div>
                     <ReactPaginate

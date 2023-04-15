@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import httpBrowsing from '../../../../Services/httpBrowsing';
 import { loginUser, validateEmail } from "../../../../Services/AuthService";
 import { SET_LOGIN, SET_NAME } from "../../../../redux/feature/AuthSlice";
 import { selectCsrfToken } from '../../../../redux/feature/AuthSlice'
@@ -17,6 +17,9 @@ import BulkUploadDocument from "../../../../components/BulkUploadDocument";
 import GeneralButton from '../../../../components/Buttons/GeneralButton';
 import mainLogo from '../../../../assets/icons/logo.svg';
 import Checkbox from "../../../../components/Checkbox";
+import Loader from "react-loader";
+
+
 const initialState = {
     username: "",
     password: "",
@@ -29,6 +32,11 @@ const LogingIn = () => {
     const csrfToken = useSelector(selectCsrfToken);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setformData] = useState(initialState);
+    const [credentials, setCredentials] = useState({
+        email: '',
+        password: ''
+    })
+    const [tokenGranted, setTokenGranted] = useState(false)
     const { email, password } = formData;
     const [checked, setChecked] = useState(false)
 
@@ -37,43 +45,7 @@ const LogingIn = () => {
         setformData({ ...formData, [name]: value });
     };
 
-    const login = async (e) => {
-        e.preventDefault();
-        if (!email || !password) {
-            return toast.error("All fields are required");
-        }
-
-        if (!validateEmail(email)) {
-            return toast.error("Please enter a valid email");
-        }
-
-        const userData = {
-            email,
-            password,
-        };
-        setIsLoading(true);
-        console.log("is csrf present", csrfToken)
-        try {
-            const data = await loginUser(userData);
-            console.log(data);
-            Cookies.set('token', data.token)
-            await dispatch(SET_LOGIN(true));
-            // await dispatch(SET_NAME(data.name));
-            navigate("/dashboard");
-            // setIsLoading(false);
-        } catch (error) {
-            setIsLoading(false);
-            console.log("error", error)
-        }
-    };
     const [showPassword, setShowPassword] = useState(false);
-    const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
-    const [changePassword, setChangePassword] = useState(false)
-
-    const [currentPassword, setCurrentPassword] = useState(false)
-    const [newPassword, setNewPassword] = useState(false)
-    const [reNewPassword, setRenewPassword] = useState(false)
-
     const [data, setData] = useState([
         "ram", 'shyam', 'hari', 'hariram'
     ])
@@ -97,6 +69,79 @@ const LogingIn = () => {
         setData(filterdata)
 
     }, [reserveValue])
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        // loginUser(credentials).then(
+        //     () => {
+        //         setIsLoading(false);
+        //         navigate("/dashboard");
+        //         // window.location.reload();
+        //     },
+        //     (error) => {
+        //         setIsLoading(false);
+        //         //   setMessage(resMessage);
+        //     }
+        // );
+        try {
+            const response = await httpBrowsing.post('/auth/login', credentials)
+            if (response.data) {
+                await localStorage.setItem("accessToken", response.data.accessToken);
+                window.location.reload();
+                // if (token) {
+                //     await navigate("/dashboard");
+                // }
+
+            }
+        } catch (error) {
+            const message =
+                (error.response && error.response.data && error.response.data.message) ||
+                error.message ||
+                error.toString();
+            // toast.error(message);
+        }
+
+
+
+    };
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     // if (!email || !password) {
+    //     //     return toast.error("All fields are required");
+    //     // }
+
+    //     // if (!validateEmail(email)) {
+    //     //     return toast.error("Please enter a valid email");
+    //     // }
+
+    //     const userData = {
+    //         email: credentials.email,
+    //         password: credentials.password,
+    //     };
+    //     setIsLoading(true);
+
+    //     try {
+    //         const data = await loginUser(userData);
+
+    //         // Cookies.set('token', data.token)
+    //         // await dispatch(SET_LOGIN(true));
+    //         // await dispatch(SET_NAME(data.name));
+    //         navigate("/dashboard");
+    //         setIsLoading(false);
+    //     } catch (error) {
+    //         setIsLoading(false);
+    //         // toast.error("Invalid Crenditials !!!")
+    //         console.log("error", error.message)
+    //     }
+    // };
+
+    const handleChange = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    }
+    console.log("This is value", tokenGranted)
     return (
 
         <>
@@ -111,12 +156,15 @@ const LogingIn = () => {
                         <span>Login Details</span>
                         <form>
                             <label htmlFor="fname">Email Address/phone *</label>
-                            <input type="text" id="fname" name="fname" autoComplete="off" />
+                            <input type="text" id="fname" name="email" autoComplete="off" value={credentials.email} onChange={handleChange} />
 
                             <label htmlFor="lname">Password *</label>
                             <div style={{ position: 'relative' }}>
 
-                                <input type={showPassword ? "text" : 'password'} id="lname" name="lname" autoComplete="off" />
+                                <input type={showPassword ? "text" : 'password'} id="lname" name="password"
+                                    value={credentials.passsword}
+                                    onChange={handleChange}
+                                    autoComplete="off" />
                                 <img src={showPassword ? closeEye : eyeOpen}
 
                                     alt='' style={{ position: 'absolute', cursor: 'pointer', top: '12px', right: '10px' }}
@@ -151,10 +199,11 @@ const LogingIn = () => {
 
                                 />
                                 <GeneralButton
-                                    title="Login"
+                                    title={isLoading ? "Loging..." : 'Login'}
                                     className={styles.orderButton}
+                                    disable={isLoading ? true : false}
 
-                                    onClick={() => navigate('/orders/new-order')}
+                                    onClick={handleSubmit}
                                 />
                             </div>
                         </form >

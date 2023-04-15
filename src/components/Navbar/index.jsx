@@ -14,7 +14,7 @@ import GeneralButton from '../Buttons/GeneralButton';
 import IconButton from '../Buttons/IconButton';
 import iconButtonNavbar from '../../assets/icons/iconButtonNavbar.svg';
 import locationNavbar from '../../assets/icons/locationNavbar.svg';
-import { logoutUser } from '../../Services/AuthService';
+// import { logoutUser } from '../../Services/AuthService';
 import Cookies from 'js-cookie';
 import { CSRF_TOKEN_VALUE, SET_LOGIN } from '../../redux/feature/AuthSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,19 +34,20 @@ const Navbar = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false)
     console.log("This is csrfToken", csrfToken)
     const handleLogout = async () => {
+        localStorage.clear()
+        window.location.reload();
 
+        //     try {
+        //         const data = await logoutUser();
+        //         console.log("data", data)
+        //         await Cookies.remove('token');
+        //         await dispatch(SET_LOGIN(false));
+        //         await dispatch(CSRF_TOKEN_VALUE(null))
+        //         navigate("/");
 
-        try {
-            const data = await logoutUser();
-            console.log("data", data)
-            await Cookies.remove('token');
-            await dispatch(SET_LOGIN(false));
-            await dispatch(CSRF_TOKEN_VALUE(null))
-            navigate("/");
+        //     } catch (error) {
 
-        } catch (error) {
-
-        }
+        //     }
     }
     return (
         <div className={styles.mainContainer} >
