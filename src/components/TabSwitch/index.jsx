@@ -3,8 +3,8 @@ import styles from './style.module.scss';
 
 
 
-const TabSwitch = ({ tabs }) => {
-    const [orderFilterId, setOrderFilterId] = useState(1)
+const TabSwitch = ({ tabs, setOrderFilterId, orderFilterId }) => {
+
     console.log("This is tabsss", orderFilterId)
     return (
         <React.Fragment>

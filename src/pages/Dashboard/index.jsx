@@ -16,6 +16,7 @@ import returns from '../../assets/icons/returns.svg';
 import orderValue from '../../assets/icons/orderValue.svg';
 import GraphCard from '../../components/GraphCard';
 import httpBrowsing from '../../Services/httpBrowsing';
+import ReactLoader from 'react-loader';
 
 
 
@@ -36,6 +37,7 @@ const Dashboard = ({ itemsPerPage }) => {
     const [cardData, setCardData] = useState()
     const [orderData, setOrderData] = useState()
     const [itemOffset, setItemOffset] = useState(0);
+    const [isLoading, setIsLoading] = useState(true)
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = items.slice(itemOffset, endOffset);
@@ -62,8 +64,9 @@ const Dashboard = ({ itemsPerPage }) => {
             .then((res) => {
                 setOrderData(res.data.data.data)
                 console.log("This is response2", res.data)
+                setIsLoading(false)
             })
-            .catch(err => console.log("This is error", err))
+            .catch(err => setIsLoading(false))
     }, [])
 
     console.log("This is card data", cardData)
@@ -142,6 +145,7 @@ const Dashboard = ({ itemsPerPage }) => {
                     <span style={{ fontSize: '12px', color: '#0C0F1E', fontWeight: '400' }} >Wednesday</span>
                     <span style={{ marginLeft: '8px', fontWeight: '400', fontSize: '12px', color: '#667085' }} >Jan 5,2022</span>
                 </div>
+
                 <div className={styles.buttons} >
                     <IconButton
                         imgSource={setting}
@@ -163,94 +167,101 @@ const Dashboard = ({ itemsPerPage }) => {
                     />
                 </div>
             </div>
-            <div className={styles.cardList} >
-                <Card
-                    title="Total Orders"
-                    imgSource={order}
-                    footerText="New Orders"
-                    value={totalOrder}
-                    footerValue={newOrder}
-                    titleTextFieldWidth={65}
-                />
-                <Card
-                    title="Total Delivered"
-                    imgSource={delivered}
-                    footerText="In Process"
-                    value={totalDelivered}
-                    footerValue={inProgress}
-                    titleTextFieldWidth={65}
-                />
-                <Card
-                    title="Total Returns"
-                    imgSource={returns}
-                    footerText="In Process"
-                    value={totalReturns}
-                    footerValue={12}
-                    titleTextFieldWidth={65}
-                />
-                <Card
-                    title="Total Ordered Value"
-                    imgSource={orderValue}
-                    footerText="Today"
-                    value={totalOrderedvalue}
-                    footerValue={today}
-                    titleTextFieldWidth={80}
-                />
-                <GraphCard
-                    data={finalGraphData}
-                    weekOrder={weekOrder}
-                />
-            </div>
-            <div className={styles.mainTableContainer}>
-                <div className={styles.tableContainer} >
-                    <div className={styles.containerHeader} >
-                        <div className={styles.headerBeginner} >
-                            <span>Recent Orders</span>
-                            <div className={styles.orderIndicator} >20 New Orders</div>
+            {
+
+                isLoading ? <ReactLoader /> :
+
+                    <>
+                        <div className={styles.cardList} >
+                            <Card
+                                title="Total Orders"
+                                imgSource={order}
+                                footerText="New Orders"
+                                value={totalOrder}
+                                footerValue={newOrder}
+                                titleTextFieldWidth={65}
+                            />
+                            <Card
+                                title="Total Delivered"
+                                imgSource={delivered}
+                                footerText="In Process"
+                                value={totalDelivered}
+                                footerValue={inProgress}
+                                titleTextFieldWidth={65}
+                            />
+                            <Card
+                                title="Total Returns"
+                                imgSource={returns}
+                                footerText="In Process"
+                                value={totalReturns}
+                                footerValue={12}
+                                titleTextFieldWidth={65}
+                            />
+                            <Card
+                                title="Total Ordered Value"
+                                imgSource={orderValue}
+                                footerText="Today"
+                                value={totalOrderedvalue}
+                                footerValue={today}
+                                titleTextFieldWidth={80}
+                            />
+                            <GraphCard
+                                data={finalGraphData}
+                                weekOrder={weekOrder}
+                            />
                         </div>
-                        <button type='button' className={styles.mainButtons}>
-                            <div style={{ display: 'flex', alignItems: 'center' }} >
-                                <span>
+                        <div className={styles.mainTableContainer}>
+                            <div className={styles.tableContainer} >
+                                <div className={styles.containerHeader} >
+                                    <div className={styles.headerBeginner} >
+                                        <span>Recent Orders</span>
+                                        <div className={styles.orderIndicator} >20 New Orders</div>
+                                    </div>
+                                    <button type='button' className={styles.mainButtons}>
+                                        <div style={{ display: 'flex', alignItems: 'center' }} >
+                                            <span>
 
-                                    See All
-                                </span>
+                                                See All
+                                            </span>
+                                        </div>
+
+                                    </button>
+                                </div>
+                                <span>Your most recent orders appear here</span>
                             </div>
-
-                        </button>
-                    </div>
-                    <span>Your most recent orders appear here</span>
-                </div>
-                <div className={styles.dataTable} >
-                    <TableComponent
-                        header={tableHeader}
-                        data={orderData}
-                    />
-                </div>
-                <div>
-                    <ReactPaginate
-                        nextLabel="Next >"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={3}
-                        marginPagesDisplayed={2}
-                        pageCount={pageCount}
-                        previousLabel="< Previous"
-                        pageClassName={`page-item`}
-                        pageLinkClassName={`page-link ${styles.pageLinkClassName}`}
-                        previousClassName={`page-item ${styles.previousClassName}`}
-                        previousLinkClassName={`page-link ${styles.previousNextClassName}`}
-                        nextClassName={`page-item ${styles.nextClassName}`}
-                        nextLinkClassName={`page-link ${styles.previousNextClassName}`}
-                        breakLabel="..."
-                        breakClassName={`page-item`}
-                        breakLinkClassName={`page-link ${styles.pageLinkClassName}`}
-                        containerClassName={`pagination ${styles.containerClassNamePagination}`}
-                        renderOnZeroPageCount={null}
-                        activeClassName={`active `}
-                        activeLinkClassName={`${styles.activeClassName}`}
-                        disabledLinkClassName={styles.disabledLinkClassName}
-                    />
-                </div>
-            </div>
+                            <div className={styles.dataTable} >
+                                <TableComponent
+                                    header={tableHeader}
+                                    data={orderData}
+                                />
+                            </div>
+                            <div>
+                                <ReactPaginate
+                                    nextLabel="Next >"
+                                    onPageChange={handlePageClick}
+                                    pageRangeDisplayed={3}
+                                    marginPagesDisplayed={2}
+                                    pageCount={pageCount}
+                                    previousLabel="< Previous"
+                                    pageClassName={`page-item`}
+                                    pageLinkClassName={`page-link ${styles.pageLinkClassName}`}
+                                    previousClassName={`page-item ${styles.previousClassName}`}
+                                    previousLinkClassName={`page-link ${styles.previousNextClassName}`}
+                                    nextClassName={`page-item ${styles.nextClassName}`}
+                                    nextLinkClassName={`page-link ${styles.previousNextClassName}`}
+                                    breakLabel="..."
+                                    breakClassName={`page-item`}
+                                    breakLinkClassName={`page-link ${styles.pageLinkClassName}`}
+                                    containerClassName={`pagination ${styles.containerClassNamePagination}`}
+                                    renderOnZeroPageCount={null}
+                                    activeClassName={`active `}
+                                    activeLinkClassName={`${styles.activeClassName}`}
+                                    disabledLinkClassName={styles.disabledLinkClassName}
+                                />
+                            </div>
+                        </div>
+                    </>
+            }
         </div>
 
     )

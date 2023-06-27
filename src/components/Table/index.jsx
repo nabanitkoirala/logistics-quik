@@ -5,6 +5,8 @@ import edit from '../../assets/icons/edit.svg';
 import printer from '../../assets/icons/printer.svg';
 import trash from '../../assets/icons/trash.svg';
 import { useNavigate } from 'react-router-dom';
+import { DateConverter } from '../../Services/Utils';
+import { DateTimeDayConverter } from '../../Services/Utils';
 
 const TableComponent = ({ header, data }) => {
     const navigate = useNavigate();
@@ -37,7 +39,7 @@ const TableComponent = ({ header, data }) => {
                     data && data.data.map((item) => (
 
                         <tr className={(selectedRow === 1 || selectedRow === 'all') ? `${styles.activeRow}` : ''}
-                            onClick={() => navigate('/orders/123658')}
+                            onClick={() => navigate(`/orders/${item.orderId}`)}
 
                         >
                             <td><Checkbox checked={checked} handleChange={() => {
@@ -68,7 +70,7 @@ const TableComponent = ({ header, data }) => {
                                                     <img src={trash} alt="" height={16} width={16} />
                                                 </div>
                                             </td> :
-                                            <td> {item[data.value]}</td>
+                                            <td> {data.value === 'createdAt' ? DateConverter(item[data.value]) : item[data.value]}</td>
 
 
 
